@@ -36,7 +36,7 @@
 *.ps
 
 # The final PDF 
-# *.pdf
+*.pdf
 
 # Editor/IDE specific files (if shared)
 .idea/        

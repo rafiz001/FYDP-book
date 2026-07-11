@@ -1,0 +1,29 @@
+name: Build LaTeX PDF
+on:
+  push:
+    tags:
+      - 'v*'  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX document
+        uses: dante-ev/latex-action@latest
+        with:
+          root_file: fydp.tex
+          # The default compiler is latexmk with -pdf [9†L9-L14]
+          # args: -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
+
+      - name: Upload PDF to Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: fydp.pdf
+          asset_name: fydp.pdf
+          asset_content_type: application/pdf
