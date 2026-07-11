@@ -1,0 +1,147 @@
+\chapter{Standards and Design Constraints}
+[Must be present in FYDP-1 Report and also in Final Report]
+
+Every chapter should start with 1-2 sentences on the outline of the chapter.
+
+\section{Compliance with the Standards}
+Only mention the standards that are related to your project. This list is not complete. For each of the standards discuss the alternates with pros and cons and rationale of selection.
+
+\subsection{Software Standards}
+The Software Standards section describes the guidelines, protocols, and best practices followed during development to ensure the system is reliable, secure, maintainable, and consistent. It typically covers coding standards (naming conventions, formatting), documentation practices, version control, testing standards, security guidelines, and any relevant international or industry standards (e.g., ISO/IEEE). The purpose is to show that the project was developed in a systematic and professional manner, following accepted engineering practices.
+
+For example, in a thesis/project work, a student may follow coding standards like proper indentation and meaningful variable names, use Git for version control, apply testing standards such as unit and integration testing, and ensure security practices like password hashing and input validation. In a web-based system, they may follow REST API standards and basic OWASP security guidelines to prevent vulnerabilities. Overall, this section demonstrates that the software is developed with quality assurance, consistency, and adherence to recognized standards, making it robust and maintainable.
+
+\subsection{Hardware Standards}
+The Hardware Standards section describes the hardware specifications, guidelines, and best practices followed to ensure the system is safe, reliable, compatible, and efficient. It typically includes details such as required hardware components (e.g., microcontrollers, sensors, servers, PCs), configuration specifications (CPU, RAM, storage), power requirements, interfacing standards, and compliance with safety or industry standards. The purpose is to show that the hardware used is appropriate, standardized, and suitable for the system’s operation.
+
+For example, in a thesis/project work involving an IoT-based system, the student may use ESP32/Arduino boards, temperature sensors, and regulated power supply, ensuring proper voltage levels (e.g., 5V/3.3V), secure wiring, and standard communication protocols like I2C, SPI, or UART. In a software-only project, this section may describe the minimum system requirements such as a computer with specific CPU, RAM, and OS configuration for deployment. Overall, this section demonstrates that the hardware setup follows standard practices for performance, safety, and compatibility, supporting reliable system operation.
+
+\subsection{Communication Standards}
+The Communication Standards section describes the protocols, data formats, and rules used for data exchange between different components of the system (e.g., client–server, device–device, or module–module). It explains how reliable, secure, and consistent communication is ensured, including aspects like network protocols, API design, message formats, error handling, and security measures. The goal is to show that the system follows standardized and interoperable communication practices.
+
+For example, in a thesis/project work, a web-based application may use HTTP/HTTPS protocols with RESTful APIs, exchanging data in JSON format, and applying authentication tokens (e.g., JWT) for secure communication. In an IoT-based project, communication may follow protocols like MQTT, HTTP, or WebSocket, with devices sending sensor data to a cloud server. The section may also mention error handling, data validation, and encryption to ensure reliability and security. Overall, this section demonstrates that the system uses standard, efficient, and secure communication methods for proper interaction between its components.
+
+
+\\
+\section{Constraints and Limitations}
+The Constraints and Limitations section explains the practical restrictions faced during the project and the inherent weaknesses of the proposed solution. It typically covers constraints such as limited time, budget, hardware resources, dataset size, tools, or technical expertise, as well as system limitations like reduced accuracy, scalability issues, dependency on internet or specific platforms, or restricted functionality. This section should be honest and realistic, showing awareness of what the system cannot fully achieve and why.
+
+For example, in a thesis (research) work, an AI model may be limited by a small or imbalanced dataset, leading to lower generalization performance despite good training accuracy. In a project (system/software) work, such as a web application, limitations may include performance degradation under high user load or dependency on stable internet connectivity. Overall, this section demonstrates critical evaluation and transparency, helping readers understand the scope, challenges, and areas for future improvement.
+
+\subsection{Economic Constraint}
+The Economic Constraints section explains the financial limitations and affordability considerations that influence the design, development, and deployment of the system. It identifies cost-related factors such as budget limits, hardware/software expenses, maintenance cost, and scalability cost, and describes how the project is designed to remain cost-effective. In a thesis (research) work, for example, a student may use open-source tools (e.g., Python, TensorFlow) and publicly available datasets to minimize expenses while still achieving strong results. In a project (system/software) work, such as a web-based management system, the design may focus on low-cost hosting, minimal hardware requirements, and efficient resource usage—for instance, developing a system that runs on standard servers instead of expensive infrastructure. Overall, this section demonstrates that the solution is economically feasible and sustainable, especially within real-world budget constraints
+\subsection{Environmental Constraint}
+The Environmental Constraints section describes how the system is affected by environmental factors and how it impacts the environment, including issues like energy consumption, hardware usage, heat generation, e-waste, and sustainability. It also explains any limitations due to infrastructure (e.g., power availability, network conditions) and how the design addresses them. In a thesis (research) work, this might involve analyzing computational cost—for example, an AI model may require high GPU power, so the study can discuss optimizing the model to reduce energy consumption or using efficient architectures. In a project (system/software) work, it may focus on deployment—for example, a web system designed to run on low-power servers to reduce electricity usage.
+
+Green computing can be incorporated by adopting environmentally friendly practices such as using energy-efficient algorithms, cloud-based shared resources instead of dedicated hardware, low-power devices, code optimization to reduce CPU usage, and minimizing unnecessary data processing or storage. For instance, a student project could implement a lightweight machine learning model that reduces computation time by 30\%, thereby lowering power consumption and contributing to sustainable computing. Overall, this section shows awareness of environmental impact and demonstrates efforts to design a more sustainable and eco-friendly system.
+To estimate the environmental impact of computation, a simple electricity-based carbon model is applied. Using the Bangladesh grid emission factor ($\approx 0.67$ kg CO$_2$ per kWh), the carbon footprint is computed from the total energy used during model training. A typical large deep-learning workflow may require a 250~W GPU for multiple long training runs, resulting in significantly higher energy use and emissions. In contrast, the proposed LitePhospho model uses a lightweight architecture that trains on a 100~W CPU/small GPU for fewer hours. As a result, the total computational carbon emission is considerably lower.r.
+
+\subsection{Ethical Constraint}
+The Ethical Constraints section explains how the project adheres to moral principles and professional responsibilities during development and deployment. It addresses issues such as data privacy, confidentiality, informed consent, fairness, transparency, avoidance of bias, and responsible use of technology. The section identifies potential ethical risks—like misuse of user data, biased AI decisions, or plagiarism—and describes the measures taken to prevent them. In a thesis (research) work, for example, an AI-based system using personal or medical data must ensure data anonymization, secure storage, and proper consent from data sources, while also evaluating and reducing algorithmic bias. In a project (system/software) work, such as a web or mobile application, ethical considerations may include secure authentication, protection of user information, and clear user policies. Overall, this section demonstrates that the system is developed in a way that is fair, responsible, and aligned with professional ethical standards.
+\subsection{Health and Safety Constraint}
+The Health and Safety Constraints section explains how the project considers and minimizes risks to users, developers, and the environment during development and operation. It identifies potential hazards—such as electrical risks (in hardware/IoT projects), prolonged screen exposure, poor ergonomics, data privacy concerns, or system misuse—and describes measures taken to ensure safety and compliance with standards. In a thesis (research) work, for example, an AI-based healthcare system should ensure data privacy, secure handling of sensitive information, and avoidance of misleading outputs that could affect patient decisions. In a project (system/software) work, such as an IoT-based smart device, safety measures may include proper circuit insulation, low-voltage design, secure connections, and user guidelines to prevent accidents. For software-only systems, considerations may include reducing eye strain through UI design, preventing data loss, and ensuring secure authentication. Overall, this section demonstrates that the system is designed with user well-being, safety standards, and risk mitigation in mind.
+\subsection{Social Constraint}
+he Social Constraints section explains how the project interacts with and is influenced by societal factors, and how it affects users and communities. It considers issues such as accessibility, cultural sensitivity, digital divide, user acceptance, ethical use, and inclusiveness. The section identifies potential social limitations—like lack of internet access, low digital literacy, language barriers, or resistance to new technology—and describes how the system design addresses them. In a thesis (research) work, for example, an AI-based application may consider bias in data and ensure fairness so that different groups are not disadvantaged. In a project (system/software) work, such as a mobile app, the system may include local language support (e.g., Bangla), simple user interface, and low-bandwidth operation to make it usable for a wider population. Overall, this section demonstrates awareness of the system’s social impact and responsibility, ensuring it is usable, fair, and beneficial to society.
+
+\subsection{Sustainability}
+he Sustainability section explains how the project is designed to be environmentally, economically, and socially sustainable over the long term. It highlights practices that reduce resource consumption, ensure efficient operation, and maintain usability for future users. This includes aspects such as energy efficiency, scalability, maintainability, use of open-source technologies, and minimal environmental impact. In a thesis (research) work, for example, a student may develop an optimized AI model that achieves high accuracy with reduced computational cost, thereby lowering energy consumption. In a project (system/software) work, such as a web or IoT system, sustainability may involve low-power hardware, efficient code, cloud-based shared resources, and easy system updates to extend system lifespan. Overall, this section demonstrates that the solution is not only effective now but also viable, efficient, and responsible for long-term use and future development.
+\subsection{Lifelong Learning and Personal Development}
+The Lifelong Learning and Personal Development section highlights how the thesis or project contributed to the student’s continuous learning ability and overall skill development. It reflects on the knowledge and competencies gained during the work, such as learning new programming languages, tools, frameworks, or research methodologies, as well as improving problem-solving, critical thinking, teamwork, and communication skills. In a thesis (research) work, for example, a student may learn how to read and analyze research papers, design experiments, and implement advanced models (e.g., deep learning), which prepares them for future research or higher studies. In a project (system/software) work, a student might gain hands-on experience in system design, debugging, version control, and user interaction—for instance, developing a web application may enhance full-stack development skills and real-world problem-solving ability. Overall, this section demonstrates how the work has strengthened the student’s ability to adapt, learn independently, and grow professionally beyond the project itself.
+\section{Cost Analysis}
+The cost-benefit analysis will assess whether the proposed system is economically and practically worthwhile by comparing the total cost of development and operation with the expected benefits. It typically includes cost components such as hardware, software, development time, maintenance, and training, and benefits such as time savings, improved accuracy, efficiency, scalability, or social impact. In a thesis (research) work, this may focus on research value—for example, an AI model developed using open-source tools may have minimal financial cost but high benefit in terms of improved prediction accuracy and contribution to knowledge. In a project (system/software) work, it is often more practical—for example, a web-based management system costing BDT 50,000 to develop may reduce manual work by 70\%, save administrative time, and improve data accuracy, making it cost-effective in the long run. Overall, this section demonstrates that the proposed solution provides greater benefits compared to its cost, justifying its implementation
+Provide a cost analysis in terms of budget required and revenue model. In case of budget, you must show an alternate budget and rationales. 
+\section{Complex Engineering Problem}
+
+\subsection{Complex Problem Solving} 
+The Complex Engineering Problem (CEP) section explains why a thesis or project involves significant engineering difficulty, requiring analysis, judgment, and integration of multiple factors rather than a routine solution. To justify CEP (as per BAETE/Washington Accord style), you should explicitly show that the work satisfies WP1, WP2, and WP3.
+\\
+WP1 (Depth of Knowledge Required): The problem demands advanced and specialized knowledge beyond basic coursework. 
+
+WP2 (Range of Conflicting Requirements): The solution must balance multiple, often conflicting constraints (e.g., accuracy vs. cost, performance vs. energy, usability vs. security).
+
+WP3 (Depth of Analysis Required): The problem requires in-depth analysis, modeling, experimentation, and evaluation of alternatives, not a straightforward implementation.
+\\
+
+Example (Thesis Work – AI-based Disease Prediction)
+
+This work can be justified as a CEP because:
+
+WP1: It requires knowledge of machine learning, deep learning architectures, and data preprocessing techniques. 
+
+WP2: It must balance high accuracy with limited dataset size, computational cost, and ethical concerns like data privacy. 
+
+WP3: It involves extensive experimentation (model tuning, comparison with baseline models, performance evaluation using metrics like accuracy and F1-score).
+\\
+
+Example (Project Work – Smart Traffic Management System)
+
+WP1: Requires knowledge of IoT, networking, and real-time systems. 
+
+WP2: Must handle conflicts between real-time performance, cost of sensors, network latency, and scalability. 
+
+WP3: Requires analysis of traffic patterns, algorithm design for signal optimization, and testing under different traffic scenarios. 
+
+Overall, the CEP section should clearly demonstrate that the work involves advanced knowledge, multiple constraints, and rigorous analysis, thereby qualifying it as a Complex Engineering Problem rather than a simple or routine task.
+
+In this section, provide a mapping with problem solving categories. For each mapping add subsections to put rationale (Use Table~\ref{tab:p_solve}). For P1, you need to put another mapping with Knowledge profile and rational thereof.
+
+\begin{center}
+    \begin{table}[ht]
+        \centering
+        \caption{Mapping with complex problem solving.}
+        \begin{tabular}{|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|}
+        \hline
+        WP1& WP2& WP3& WP4& WP5& WP6& WP7\\
+        Dept of Knowledge & Range of Conflicting Requirements & Depth of Analysis & Familiarity of Issues & Extent of Applicable Codes & Extent of Stakeholder Involvement & Inter-dependence\\
+   
+        \hline 
+        $\sqrt{}$ & $\sqrt{}$ & $\sqrt{}$ &&&&\\
+        &&&&&&\\
+        \hline 
+        \end{tabular}
+        \label{tab:p_solve}
+    \end{table}
+\end{center}
+
+\subsection{Engineering Activities}
+The Complex Engineering Activities (CEA) section explains how the student has carried out non-routine, technically demanding engineering tasks that involve design, implementation, and decision-making under constraints. It demonstrates that the work is not just theoretical but includes practical realization, integration of components, testing, and iterative improvement. To justify CEA (aligned with BAETE/Washington Accord), you should explicitly show that the work satisfies EA1 and EA2:
+
+EA1 (Range of Resources and Techniques): The project uses diverse tools, technologies, and methods, such as programming frameworks, hardware/software integration, simulations, datasets, and testing tools.
+
+EA2 (Level of Interaction and Integration): The work involves integration of multiple subsystems or components, requiring coordination between different modules, technologies, or stakeholders.
+\\
+
+Example (Thesis Work – AI-based Disease Detection)
+
+EA1: Uses Python, TensorFlow/PyTorch, data preprocessing techniques, and performance evaluation tools.
+
+EA2: Integrates data collection, preprocessing pipeline, model training, evaluation, and possibly a user interface for prediction, forming a complete system.
+\\
+
+Example (Project Work – Smart Home Automation System)
+EA1: Uses microcontrollers (e.g., Arduino/ESP32), sensors, mobile app development, and networking protocols.
+
+EA2: Integrates hardware (sensors/actuators), software (control logic), and communication (Wi-Fi/Bluetooth) into a unified system.
+
+Overall, this section should clearly show that the student has engaged in hands-on engineering activities involving multiple tools and system integration, proving the work qualifies as Complex Engineering Activities, not just a simple or isolated task.
+
+In this section, provide a mapping with engineering activities. For each mapping add subsections to put rationale (Use Table~\ref{tab:e_act}).
+\begin{center}
+    \begin{table}[ht]
+        \centering
+                \caption{Mapping with complex engineering activities.}
+
+        \begin{tabular}{|p{0.18\textwidth}|p{0.18\textwidth}|p{0.18\textwidth}|p{0.18\textwidth}|p{0.18\textwidth}|}
+        \hline
+        EA1& EA2& EA3& EA4& EA5\\
+        Range of resources & Level of Interaction & Innovation & Consequences for society and environment & Familiarity\\
+        \hline 
+        $\sqrt{}$ & $\sqrt{}$ &&&\\
+        &&&&\\
+        \hline 
+        \end{tabular}
+        \label{tab:e_act}
+    \end{table}
+\end{center}
+
+\section{Summary}

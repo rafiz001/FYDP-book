@@ -1,0 +1,50 @@
+# Core LaTeX compilation artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.lof         
+*.lot          
+*.tui          
+
+# Bibliography generated files
+*.bbl          
+*.blg          
+*.bcf          
+*.run.xml      
+*-blx.bib      
+
+# Index and glossary
+*.idx
+*.ind
+*.ilg
+*.ist
+*.glo
+*.gls
+*.glg
+*.glsdefs
+
+# Build system files
+*.fls         
+*.fdb_latexmk  
+*.synctex.gz   
+*.synctex(busy)
+
+# Older DVI/PS outputs (if you ever use them)
+*.xdv
+*.dvi
+*.ps
+
+# The final PDF 
+# *.pdf
+
+# Editor/IDE specific files (if shared)
+.idea/        
+.vscode/      
+*.swp         
+*.swo
+*~           
+
+# OS specific junk files
+Thumbs.db
+.DS_Store
