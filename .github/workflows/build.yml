@@ -3,7 +3,11 @@ name: Build and Release LaTeX PDF
 on:
   push:
     tags:
-      - 'v*'   
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -13,17 +17,23 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Compile LaTeX document
-        uses: dante-ev/latex-action@latest
+        uses: dante-ev/latex-action@v2
         with:
           root_file: fydp.tex
-          # Optional: add extra args if needed
-          # args: -pdf -latexoption=-interaction=nonstopmode
+          args: -pdf -interaction=nonstopmode
+
+      - name: Upload build log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: latex-log
+          path: '*.log'
 
       - name: Create Release and Upload PDF
+        if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
           files: fydp.pdf
-          # If you want to generate release notes automatically:
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
