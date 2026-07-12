@@ -1,7 +1,8 @@
 \documentclass[a4paper,11pt]{report}
 %\usepackage[none]{hyphenat}
 
-%\usepackage[T1]{fontenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 %\usepackage[bitstream-charter]{mathdesign}
 
 %\usepackage[usenames,dvipsnames,pdf]{pstricks}
@@ -13,17 +14,27 @@
 
 \usepackage{graphicx}
 \usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{booktabs}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 
+\usepackage{microtype}
 \usepackage[noend,ruled,noline,linesnumbered,algochapter]{algorithm2e}
 
-\usepackage[linktoc=page]{hyperref}
+\usepackage[hidelinks,linktoc=page]{hyperref}
 \usepackage[margin=3cm]{geometry}
 \usepackage{setspace} 
-
-\usepackage{fancyhdr}
+\usepackage{tabularray}
+\usepackage[]{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, decorations, decorations.pathmorphing, positioning, shapes.geometric, calc, shadows}
+\usepackage{float}
+\usepackage{pgfgantt}
+\usepackage{xcolor}
 \pagestyle{fancy}
+
+
 
 \rhead{\nouppercase\leftmark}
 \lhead{\nouppercase\rightmark}
@@ -33,6 +44,7 @@
 \onehalfspacing 
 
 \renewcommand*\contentsname{Table of Contents}
+\setlength{\emergencystretch}{3em}
 
 \begin{document}
 
@@ -53,14 +65,11 @@
     
 
 
-
 %\clearpage
 %\thispagestyle{empty}
 %\mbox{}
 %\clearpage
 %\thispagestyle{empty}
-\pagenumbering{roman}
-\setcounter{page}{1}
 
 
 \phantomsection
@@ -78,10 +87,10 @@
 \input{0.3.ack}
 \clearpage
 
-\phantomsection
-\addcontentsline{toc}{chapter}{Publication List}
-\input{0.4.pub}
-\clearpage
+% \phantomsection
+% \addcontentsline{toc}{chapter}{Publication List}
+% \input{0.4.pub}
+% \clearpage
 
 \phantomsection
 \tableofcontents

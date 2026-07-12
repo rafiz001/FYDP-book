@@ -1,30 +1,56 @@
 \chapter{Background}
 
-[\textit{Must be present in FYDP-1 Report and also in Final Report}]
-
-Every chapter should start with 1-2 sentences on the outline of the chapter.
+This chapter demonstrates about the background study of our project as well as literature review and gap analysis of existing similar ERP systems.
 
 \section{Preliminaries}
-In this section, you have to provide the necessary background knowledge to understand the rest of the report \cite{kleinberg2006algorithm}.
+In our project we used Express.js on backend and MongoDB as database that provides us a robust and scalable solutoin to modern ERP complexities. And we used OpenAI standard API as Gemini to enable demand forecasting. .
 \section{Literature Review}
-The Literature Review section summarizes and analyzes existing research, systems, and technologies related to the project, showing what has already been done and where your work fits in. It typically includes a review of relevant papers, methods, tools, and findings, along with a brief comparison of their strengths and limitations. The goal is not just to describe past work, but to critically analyze it and identify trends, gaps, and opportunities that justify your proposed solution.
 
-In a thesis (research) work, for example, a student working on an AI-based disease prediction model may review several studies using CNN, SVM, or hybrid models, compare their accuracy (e.g., 80–90\%), and discuss limitations such as small datasets or lack of generalization. In a project (system/software) work, such as a web-based management system, the review may include existing applications or frameworks, discussing features, usability, and shortcomings like lack of scalability or poor user interface. Overall, this section demonstrates understanding of the domain, awareness of prior work, and the need for the proposed solution.
 
-This section will contain you literature review.
+We have observed some existing applications related to Pharmacy ERP and by analyzing these we got some crusial gaps that need to be solved by us. These applications some has absent of AI forecasting features, some are high price on cost, some are not uses modern technologies like Next.js, some are not available on mobile devices. Let us deep drive to them on the below subsections.
+
 \subsection{Similar Applications}
 
-The Similar Applications section describes existing real-world systems, software, or applications that are closely related to your project. It focuses on practical implementations (not just research papers) and explains their features, technologies, strengths, and limitations. The purpose is to show awareness of current solutions and to highlight how your system is different or improved.
-
-In a thesis (research) work, for example, if the topic is AI-based disease prediction, this section may discuss existing applications like hospital decision-support systems or diagnostic apps, describing their capabilities and limitations (e.g., limited accuracy or lack of local data). In a project (system/software) work, such as a student management system, similar applications may include existing university portals or commercial software, analyzing features like record management, reporting, and user interface, while noting gaps such as poor usability or lack of customization. Overall, this section demonstrates practical relevance, comparison with real systems, and justification for the proposed solution.
+% In a project (system/software) work, such as a student management system, similar applications may include existing university portals or commercial software, analyzing features like record management, reporting, and user interface, while noting gaps such as poor usability or lack of customization. Overall, this section demonstrates practical relevance, comparison with real systems, and justification for the proposed solution.
+We have listed some similar applications like:
+\begin{enumerate}
+  \item \textbf{SAP for Life sciences and healthcare} is designed to deliver modular set of solutions that helps companies connect and optimize every function across their business. They offers AI powered ERP software for healthcare. They also offer cloud based solution. But it is complex and price is high for the pharmacies of Bangladesh. \cite{sapPharma}
+  \item \textbf{Odoo ERP: Inventory and Manufacturing} has huge focus of industries including pharmacy. They offers inventory management for pharmacy, invoice generations. But lack in AI demand forecasting. \cite{odooERP}
+  \item \textbf{Infor Healthcare ERP} is an ERP system for healthcare. They also offer AI features. But this ERP is not for pharmacy specific and is complex for pharmacy. \cite{inforHealthcare}
+\end{enumerate}
 
 \subsection{Related Research}
-The Related Research section reviews and discusses previous academic studies, journal papers, and conference works that are directly connected to your thesis or project topic. It focuses on research methods, models, algorithms, datasets, and key findings, showing how other researchers have approached similar problems. The section should not only summarize these works but also compare them, highlight their strengths and limitations, and identify research gaps that your work aims to address.
+% It focuses on research methods, models, algorithms, datasets, and key findings, showing how other researchers have approached similar problems. The section should not only summarize these works but also compare them, highlight their strengths and limitations, and identify research gaps that your work aims to address.
 
-In a thesis (research) work, for example, a student working on an AI-based disease prediction system may analyze several studies using techniques like CNN, SVM, or hybrid models, comparing their performance (e.g., accuracy, PR-AUC) and noting limitations such as small datasets or lack of generalization. In a project (system/software) work, such as a smart traffic system, the section may include research on traffic optimization algorithms or IoT-based solutions, discussing their effectiveness and constraints. Overall, this section demonstrates deep understanding of the research landscape and positions your work within existing scientific contributions.
+% In a project (system/software) work, such as a smart traffic system, the section may include research on traffic optimization algorithms or IoT-based solutions, discussing their effectiveness and constraints. Overall, this section demonstrates deep understanding of the research landscape and positions your work within existing scientific contributions.
 
+We can observe that the existing solutions is not enough for a pharmacy in Bangladesh perspective. Like \textit{SAP} offered cloud based, AI powered solution but it is complex for pharmacy and the price is also high. \textit{Infor} is also like this. It has also AI powered features, cloud based but is not pharmacy specific. On the other hand, \textit{Odoo ERP} offers pharmacy specific ERP but it lacks AI demand forecasting.
 \section{Gap Analysis}
-Gap analysis identifies the limitations, shortcomings, or unexplored areas in existing research or systems and explains how the proposed work aims to address those gaps.
-Recommended Table Format. The table columns will include: Existing Work, Limitations, Identified Gap, and Proposed Solution.
-Here summarise the gap where you intend to work.
+% Gap analysis identifies the limitations, shortcomings, or unexplored areas in existing research or systems and explains how the proposed work aims to address those gaps.
+% Recommended Table Format. The table columns will include: Existing Work, Limitations, Identified Gap, and Proposed Solution.
+% Here summarise the gap where you intend to work.
+We identified some gaps for the existing solutions. We need pharmacy specific ERP, price should be reasonable, AI based demand forcasting, easy to use in one solution. 
+\begin{table}[htbp]
+\centering
+\caption{Gap analysis}
+\label{gapAnalysis}
+\begin{tblr}{
+  width = \linewidth,
+  colspec = {Q[105]Q[160]Q[363]Q[335]},
+  cells = {c},
+  row{1} = {font=\bfseries},
+  hlines,
+  vlines,
+}
+Existing Work & Limitations & Identified Gap & Proposed Solution \\
+SAP & Not pharmacy specific, high price. & We need pharmacy specific ERP. And a reasonable price for Bangladesh perspective. & Our system focus only pharmacy, so the price is also reasonable. \\
+Odoo & Lack of AI based demand forecasting. & We need such a system so that a manual experience based demand forecasting can be avoided. & Our system provides AI based demand forecasting. \\
+Infor & Complex for pharmacy only domain. & We need a simple and easy to use pharmacy only ERP. & Our system provides user friendly, simple UI and focusing only on pharmacy industry. \\
+\end{tblr}
+\end{table}
+
+
+
+
 \section{Summary}
+We have analyzed existing ERP systems that they have many limitations and gaps to fulfill the demand of pharmacies in Bangladesh. Some of them are not pharmacy specific, lack of AI features or too complex for pharmacy stores. We filled these gaps by our easy to use, AI powered ERP system that is specially built for pharmacy.

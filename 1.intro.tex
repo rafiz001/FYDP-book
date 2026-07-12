@@ -1,41 +1,66 @@
 \chapter{Introduction}
-[\textit{Must be present in FYDP-1 Report and also in Final Report}]
 
-
-Every chapter should start with 1-2 sentences on the outline of the chapter.
+This chapter gives clear understanding on the introduction of our project like overview, motivation, objectives to achieve, methodology to implement and the outcome corresponding to objectives.
 
 \section{Thesis/Project Overview}
-This section should clearly present the background and a problem statement that your project aims to solve.
-The Thesis/Project Overview section provides a concise introduction to the entire work, giving readers a quick understanding of what the project is, why it is important, and how it is carried out. It typically includes the problem statement, objectives, scope, methodology, and expected outcomes. The overview should briefly describe the context of the problem, the motivation behind choosing it, and the proposed solution approach, without going into detailed technical explanations.
+Pharmacies rely on manual inventory and sales processes. Fragmented tracking causes stock mismanagement and financial waste. They are rely on human experience based forecasting for fututre sales prediction to control the rate of purchase of new medicines. Sales tracking and invoice generation are manual in most of the pharmacies in Bangladesh.
 
-In a thesis (research) work, for example, an overview of an AI-based disease prediction system may mention the need for accurate diagnosis, the use of machine learning models, dataset sources, and expected improvement in prediction accuracy. In a project (system/software) work, such as a web-based student management system, the overview may highlight the need for automation, key features (student records, result management), technologies used (e.g., web framework, database), and expected benefits like efficiency and accuracy. Overall, this section acts as a snapshot of the entire work, helping readers quickly grasp the purpose, approach, and significance of the project
+
+Our project, Pharmaciano is made to solve all the problems mentioned above. We implemented to such a system so that pharmacy can now automate the inventory and stock management. It provides AI based demand forecasting that helps to predict how the sales is going to be in the following months that is crusial to buy the stock for next. It is made by focusing on Bangladesh perspective, so it is easier for Bangladesh's pharmacy to convert existing manual system to ERP. We used Next.js for frontend, Express.js for backend, MongoDB for database, Redis for caching, Flutter for mobile app. Overall we made a robust solution for pharmacies in Bangladesh.
+
 
 \section{Motivation}
-The Thesis/Project Motivation section explains why the problem was chosen and what inspired the work. It highlights the real-world need, existing challenges, and importance of solving the problem, linking them to academic, industrial, or societal relevance. This section typically includes the background context, observed issues in current systems, and the potential impact of an improved solution, helping readers understand the driving force behind the project.
+In Bangladesh, most of the pharmacies are facing stock and expiry mismanagement as they make sales in manual process. As a result we the consumers sometime can not get medicines in time or the medicines which are available have expired. And many of the pharmacies do not provide us a detailed invoice that can give a customer about the transparency for the money they are spending. These issues drew our attention to solve the whole problem. This how we motivated to develop such an ERP system for pharmacy. 
 
-In a thesis (research) work, for example, the motivation for an AI-based disease prediction system may come from the need for early and accurate diagnosis, limitations of existing models, and the growing importance of AI in healthcare. In a project (system/software) work, such as a student management system, the motivation may arise from manual record-keeping inefficiencies, data errors, and time-consuming administrative processes, encouraging the development of an automated solution. Overall, this section clearly communicates the purpose and significance of the work, showing why it is worth undertaking.
-The computational motivation that encourages you to solve the problem should be clearly stated here. In addition, you can mention why solving this problem will benefit you.
 \section{Objectives}
-The Thesis/Project Objectives section clearly states the specific goals that the work aims to achieve, usually in concise, measurable points. It translates the motivation into actionable targets, outlining what the system or research will accomplish. Objectives should be clear, achievable, and aligned with the problem statement, often divided into a general objective (overall goal) and several specific objectives (step-by-step aims such as design, implementation, and evaluation).
+We have listed some goals for our project to be achieved. Here are these:
 
-In a thesis (research) work, for example, an AI-based disease prediction study may have objectives like: to develop an accurate prediction model, to evaluate performance using metrics such as accuracy and F1-score, and to compare results with existing methods. In a project (system/software) work, such as a web-based student management system, objectives may include: to design a user-friendly interface, to implement modules for student records and result management, and to ensure efficient and secure data handling. Overall, this section defines what the project intends to achieve and provides a roadmap for the entire work.
-
-Enumerate the objectives in clear and specific terms.
-\begin{enumerate} \it
-    \item Objective 1
-    \item Objective 2
-    \item Objective 3
+\begin{enumerate} 
+    \item To develop a responsive and user-friendly UI
+    \item To implement secure and scalable backend architecture
+    \item To implement an inventory management system for medicines
+    \item To maintain multiple branch functionality
+    \item To manage multiple role access
+    \item To generate automatic invoice
+    \item To implement AI based predictions
 \end{enumerate}
 \section{Methodology}
-Here you put a brief summary of the methodology.
-\section{Thesis/Project Outcome}
-What are or could be the possible outcomes of your work?
-The outcomes achieved in this theiss/project are as follows:
+We implemented the objectives of our project by using an "API-First" approach. For user-friendly and responsive UI we used Next.js and Shadcdn on frontend. We used Express.js on backend, MongoDB as database, flutter for mobile application. Frontend and Backend are communicating each other with RESTful API. To make the system secure we implemented JWT Token on protected API endpoints. 
+\\
+\begin{figure}[htbp]
+\centering 
+\begin{tikzpicture}[scale=2]
+\node[draw, minimum height=29pt, align=center, minimum width=78pt] (node2) at (0.06,2.49) {Next.js\\based frontend};
+\node[draw, minimum height=29pt, align=center] (node1) at (3.77,2.49) {Express.js\\based backend};
+\node[draw, minimum height=29pt, align=center, minimum width=68pt] (node4) at (3.77,0.89) {MongoDB\\database};
+\node[draw, minimum height=29pt, align=center, minimum width=77pt] (node3) at (0.04,0.89) {Flutter\\application};
+  \draw[arrows=Latex-Latex] (node1.west) -- (node2.east);
+  \draw[decorate, decoration=bent, arrows=Latex-Latex] (node1.south west) -- (node3.north);
+  \draw[arrows=Latex-Latex] (node1.south) -- (node4.north);
+  \node[draw=none, node font={\fontsize{9.5pt}{3.5pt}\selectfont}] at (1.93,2.6) {RESTful API};
+  \node[draw=none, node font={\fontsize{9.5pt}{3.5pt}\selectfont}, rotate=30] at (2.78,1.73) {RESTful API};
+  \node[draw=none, node font={\fontsize{9.5pt}{3.5pt}\selectfont}, rotate=19] at (1.37,1.73) {RESTful API};
+  \node[draw=none, node font={\fontsize{9.5pt}{4.5pt}\selectfont}] at (4.20,1.68) {Mongoose};
+  \node[draw, align=center, minimum width=79pt, minimum height=29pt] (node5) at (2,0.89) {AI Model};
+  \draw[arrows=Latex-Latex] (node1.south) -- (node5.north);
+  
+\end{tikzpicture}
+    \caption{Flow diagram}
+    \label{fig:basicFlowDiagram}
+\end{figure}
+\\
+This how we implemented an inventory management system to sale the medicines. We added multi-branch functionality by maintaining all the sales branch wise. We implemented Role Based Access Control(RBAC) for our REST APIs, this how we managed multiple role access like super admin, salesman, cashier e.t.c. We implemented automatic invoice generation by using \textit{jspdf} library on frontend. And we implemented AI based prediction by using OpenAI standard AI API as Google Gemini. 
+\section{Project Outcome}
+The outcomes achieved in this project are as follows:
 
-\begin{enumerate} \it
-    \item Outcome 1 corresponding to Objective 1.
-    \item Outcome 2 corresponding to Objective 2.
-    \item Outcome 3 corresponding to Objective 3.
+\begin{enumerate}
+    \item \textbf{Achieved a fully responsive user friendly UI} that works perfectly on desktop, laptop and mobile devices. That provides less effort to learn the system across all the stuff of branches.
+    \item \textbf{Implemented a secure and scalable backend architecture} by utilizing secure authentication protocol, JWT and modular approach. That gives us flexibility to scaleup our system.
+    \item \textbf{Successfully deployed full functional inventory management system for medicines} that provides visibility for proper stock levels.
+    \item \textbf{Enabled multi-branch functionality} by implementing centralized data, saperation of each sales by branch.
+    \item \textbf{Implemented Role Based Access Control(RBAC)} that manages permissions for admins, managers, cashier and sales Staff that provides strict data security and prevention of unauthorized access to sensitive operations.
+    \item \textbf{Automated the entire billing and invoicing generation} that reduced billing turnaround time and eliminated manual arithmetic errors during checkout.
+    \item \textbf{Integrated an AI-driven predictive analytics module}  that forecasts future medicine demand based on historical sales data, that significantly reducing instances of overstocking and understocking.
 \end{enumerate}
 \section{Organization of the Report}
-Here put a chapter wise structure of the report in narrative form.
+In the following chapters we are going to discuss Background Study on second chapter, System Architecture on third chapter, Implementation and Results on fourth chapter, Standards and Design Constraints on fifth chapter and finally Conclusion on sixth chapter. 
