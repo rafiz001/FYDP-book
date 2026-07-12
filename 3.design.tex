@@ -9,11 +9,14 @@ The proposed system, A Cross-Platform Multi-Vendor Pharmacy ERP System with AI-B
 \subsection{Functional and Nonfunctional Requirements}
 The requirements of the proposed system can be organized into two major categories namely, the Functional Requirements and Non-Functional Requirements.
 
-\subsubsection*{Functional Requirements}
-Functional requirements describe the specific features and services that the system must provide to its users.\\
+\subsubsection{Functional Requirements}
+Functional requirements describe the main features and services of our system.\\
 
-\noindent The proposed system shall:
+\noindent Our proposed system functional requirements:
 \begin{enumerate} 
+    \setlength{\itemsep}{0pt}
+    \setlength{\parsep}{0pt}
+    \setlength{\topsep}{0pt}
     \item Allow users to register and login to the system using unique credentials.
     \item Allow users to access the features of the system based on the assigned roles.
     \item Allow the organization and branches to manage their pharmacies.
@@ -30,17 +33,18 @@ Functional requirements describe the specific features and services that the sys
     \item Display statistical reports and graphs.
     \item Use artificial intelligence to analyze sales and inventory data.
     \item Predict medicine demand using artificial intelligence.
-    \item Suggest the quantity of medicines to reorder based on predicted demand.
     \item Identify medicines that are likely to be in short supply.
     \item Identify medicines that are about to expiry and notify the relevant users.
-    \item Store the results of the artificial intelligence analysis for future reference.
 \end{enumerate}
 
-\subsubsection*{Non-Functional Requirements}
+\subsubsection{Non-Functional Requirements}
 The non-functional requirements of the proposed system can be defined as the features and services that are not directly related to the services that the system provides but are necessary for the proper functioning of the system.\\
 
 \noindent The proposed system shall:
-\begin{enumerate} 
+\begin{enumerate}
+    \setlength{\itemsep}{0pt}
+    \setlength{\parsep}{0pt}
+    \setlength{\topsep}{0pt} 
     \item Respond to requests from users quickly.
     \item Provide secure access to the features of the system.
     \item Secure sensitive information about the business using encryption.
@@ -58,20 +62,18 @@ The non-functional requirements of the proposed system can be defined as the fea
 \end{enumerate}
 
 \subsection{Context Diagram}
-A context diagram depicts a high-level overview of the proposed system and its relationship to the environment, which is also essential in understanding the overall purpose and boundaries of the system. It is worth noting that the context diagram does not indicate the system’s inner structure, including the frontend, backend, database, and the AI system. Instead, this diagram type describes the interaction processes of the users and the system, providing an insight into how users communicate with the system and exchange data.
-
 The proposed cross-platform multi-vendor pharmacy ERP system with AI-based stock forecasting and analytics contains numerous external entities. Among them are Super Admin, Organization Admin, Pharmacist, Salesperson, Supplier, and Customer. These external parties interact with the system through the input and output data. The input data includes authentication, inventory, sales, purchase, and management data. In turn, the system provides invoices, reports, inventory data, notifications, and AI-based forecasts as an output.
 
 \subsection*{Context diagram of the proposed system.}
 
-\begin{figure}[H]
+\begin{figure}[h]
   \centering
   \begin{tikzpicture}[
       scale=0.72,
       transform shape,
       node distance=3.0cm,
-      entity/.style={rectangle, draw, fill=blue!10, text width=3.2cm, align=center, rounded corners=4pt, minimum height=1.2cm, font=\sffamily\bfseries, drop shadow},
-      system/.style={rectangle, draw, fill=red!5, text width=5.0cm, align=center, rounded corners=15pt, minimum height=3.0cm, font=\sffamily\Large\bfseries, drop shadow, thick},
+      entity/.style={rectangle, draw, text width=3.2cm, align=center, rounded corners=4pt, minimum height=1.2cm, font=\sffamily\bfseries},
+      system/.style={rectangle, draw, text width=5.0cm, align=center, rounded corners=15pt, minimum height=3.0cm, font=\sffamily\Large\bfseries, thick},
       arrow/.style={thick, -{Stealth}},
       labelstyle/.style={font=\small\sffamily, align=center}
     ]
@@ -106,68 +108,70 @@ The proposed cross-platform multi-vendor pharmacy ERP system with AI-based stock
 \end{figure}
 
 \subsection{UI Design}
-if required (may be for project work)
+To design UI we followed two main CSS frameworks for web like:
+\begin{itemize}
+  \item Shadcn
+  \item TailwindCSS
+\end{itemize}
+Here are some of our UI screens for web:
+\begin{figure}[h]
+\caption{Login UI}
+\centering
+\includegraphics[scale=0.15]{./images/login_page.png}
+\end{figure}
 
 \section{Detailed Methodology and Design}
-The proposed A Cross-Platform Multi-Vendor Pharmacy ERP System with AI-Based Stock Forecasting and Analytics will adopt the client-server architecture, which will ensure scalability, operability, and effective communication of the system’s components. The system will comprise three main parts: frontend, backend, and database. The frontend will include the website, which will be built on NextJS framework, and the mobile application, which will be developed in Flutter framework. The website and the mobile app will use REST API for effective communication with the backend.
+The proposed A Cross-Platform Multi-Vendor Pharmacy ERP System with AI-Based Stock Forecasting and Analytics adopted the client-server architecture, which ensured scalability, operability, and effective communication of the system’s components. The system comprised three main parts: frontend, backend, and database. The frontend included the website, which was built on NextJS framework, and the mobile application, which was developed in Flutter framework. The website and the mobile app used REST API for effective communication with the backend.
 
-The application backend is built with Express.js., which handles the request and response logic in the system. It also manages such aspects as user authentication and authorization, request validation, business logic, and pharmacy operation. Additionally, the backend accommodates the forecasting system that uses AI to predict demand based on past sales and inventory data, while also presenting warnings on low stock, expiry dates, and recommended items for reorder.
+The application backend was built with Express.js, which handled the request and response logic in the system. It also managed such aspects as user authentication and authorization, request validation, business logic, and pharmacy operation. Additionally, the backend accommodated the forecasting system that used AI to predict demand based on past sales and inventory data, while also presenting warnings on low stock, expiry dates, and recommended items for reorder.
 
-The MongoDB database is utilized to store all the information related to the app, such as users, medicines, inventory, purchases, sales, suppliers, customers, employees, and AI forecasts. Additionally, the Redis database is applied as an in-memory cache to enhance the performance of the application by decreasing the number of requests to the MongoDB database.
+The MongoDB database was utilized to store all the information related to the app, such as users, medicines, inventory, purchases, sales, suppliers, customers, employees, and AI forecasts. Additionally, the Redis database was applied as an in-memory cache to enhance the performance of the application by decreasing the number of requests to the MongoDB database.
 
-The general process starts when a request from the user comes to the web or the mobile application. The application then relays the request to the backend, where it is authenticated and processed. The backend accesses the database to retrieve or update the required information according to the request type and returns the result to the application. In case of forecasts, the backend will relay the sales and inventory data to the AI, process the results, store them in the database, and display the forecast results in the dashboard.
-
+The general process started when a request from the user came to the web or the mobile application. The application then relayed the request to the backend, where it was authenticated and processed. The backend accessed the database to retrieve or update the required information according to the request type and returned the result to the application. In case of forecasts, the backend relayed the sales and inventory data to the AI, processed the results, stored them in the database, and displayed the forecast results in the dashboard.
 \subsection*{Overall System Architecture}
 Illustrates the overall architecture of the proposed system. Web and mobile applications are connected to the backend with RESTful APIs. The backend is built using Express.js framework. It is responsible for processing incoming requests, working with the database (MongoDB), caching (Redis), and the AI module that is used to calculate demand forecasts and recommendations.
 
 
 \begin{figure}[H]
   \centering
-  \begin{tikzpicture}[
-      scale=0.82,
-      transform shape,
-      node distance=1.2cm,
-      client/.style={rectangle, draw, fill=blue!10, text width=3.2cm, align=center, rounded corners=4pt, minimum height=1.2cm, font=\sffamily\bfseries, drop shadow},
-      gateway/.style={rectangle, draw, fill=purple!10, text width=4.2cm, align=center, rounded corners=4pt, minimum height=1cm, font=\sffamily\bfseries, drop shadow},
-      backend/.style={rectangle, draw, fill=red!8, text width=7.0cm, align=center, rounded corners=4pt, minimum height=3.2cm, font=\sffamily\bfseries, drop shadow},
-      db/.style={cylinder, shape border rotate=90, draw, fill=orange!10, text width=2.8cm, align=center, minimum height=1.3cm, font=\sffamily, drop shadow},
-      external/.style={rectangle, draw, fill=green!10, text width=3.2cm, align=center, rounded corners=4pt, minimum height=1.3cm, font=\sffamily, drop shadow},
-      arrow/.style={thick, -{Stealth}}
-    ]
-    
-    \node[client] (web) {Web App \\ (Next.js)};
-    \node[client, right=4.0cm of web] (mobile) {Mobile App \\ (Flutter)};
-    
-    \node[gateway, below=1.2cm of $(web.south)!0.5!(mobile.south)$] (api) {RESTful APIs (HTTPS)};
-    
-    \node[backend, below=1.8cm of api] (backend) {Express.js Backend \\
-      \small
-      \begin{tabular}{c}
-        Authentication \& Authorization (JWT) \\
-        Business Logic \\
-        Inventory Management \\
-        Sales \& Purchase Management \\
-        AI Forecast Processing
-      \end{tabular}
-    };
-    
-    \node[db, below left=2.5cm and 0.8cm of backend] (mongo) {MongoDB \\ Database};
-    \node[db, below right=2.5cm and 0.8cm of backend] (redis) {Redis Cache \\ Performance};
-    
-    \node[external, right=1.8cm of backend] (gemini) {Gemini AI API \\
-      \small Demand Forecasting \\
-      \small Reorder Recommendation};
-    
-    \draw[arrow] (web) -- (api);
-    \draw[arrow] (mobile) -- (api);
-    \draw[arrow] (api) -- (backend);
-    
-    \draw[arrow] (backend.south) -- ++(0, -1.5) -| (mongo.north);
-    \draw[arrow] (backend.south) -- ++(0, -1.5) -| (redis.north);
-    
-    \draw[arrow] (backend.east) -- (gemini.west);
-    
-  \end{tikzpicture}
+\begin{tikzpicture}
+  \node[draw, align=center, inner sep=3.53pt] (node3) at (1.4,4.1) {Mobile App\\Flutter};
+  \node[draw, align=center, inner sep=3.53pt] (node1) at (-0.97,4.1) {Web App\\Next.js};
+  \draw (-5.63,5.17) rectangle (9.93,3.1);
+  \node[minimum height=18pt, minimum width=91pt] at (8.1,4.75) {Presentation Layer};
+  \node[draw] (node2) at (0.23,1.28) {Express.js API Server};
+  \node[draw, align=center] (node4) at (0.23,-0.5) {Authentication \& RBAC\\(JWT, Role Based Access)};
+  \node[draw, align=center] (node5) at (0.24,-2.55) {Core Business Logic\\(Inventory, Sales,\\ Purchases, Accounts)};
+  \node[draw, align=center] (node6) at (-2,-4.59) {AI Forecasting Engine\\(Data preparation \& Gemini client)};
+  \node[draw, align=center] (node7) at (3.87,-4.59) {Invoice \& Report Generator};
+  \node[draw, aspect=1.9, shape border rotate=90deg, minimum width=115pt, inner sep=9.4pt, align=center, minimum height=48pt] (node8) at (-2.36,-10.15) {Gemini API};
+  \node[draw, aspect=1.9, shape border rotate=90deg, minimum width=93pt, align=center, inner sep=17.1pt] (node9) at (4.15,-10.16) {MongoDB};
+  \node[draw, aspect=1.9, shape border rotate=90deg, minimum width=94pt, inner sep=18pt] (node10) at (7.86,-10.16) {Redis Cache};
+  \draw (-5.59,2.26) rectangle (9.94,-6);
+  \draw[arrows=-Latex] (node1.south) -- (node2.north);
+  \draw[arrows=-Latex] (node3.south) -- (node2.north);
+  \draw[arrows=-Latex] (node2.south) -- (node4.north);
+  \draw[arrows=-Latex] (node4.south) -- (node5.north);
+  \draw[arrows=-Latex] (node5.south west) -- (node6.north);
+  \draw[arrows=-Latex] (node5.south) -- (node7.north);
+  \draw[arrows=Latex-] (node6.south) -- (node8.north west);
+  \draw[arrows=-Latex] (node6.south) -- (node8.north east);
+  \node[draw=none, fill=white, node font=\scriptsize] at (1.6,2.75) {RESTful API};
+  \node[draw=none, fill=white, node font=\scriptsize] at (-0.95,2.75) {RESTful API};
+  \node[draw=none, fill=white] at (8.51,1.83) {Backend Layer};
+  \node[draw=none, fill=none] at (9.41,-11.51) {Data Layer};
+  \node[draw=none, fill=none] at (-4.12,-11.48) {External Services};
+  \node[draw=none, fill=white] at (-1.09,-7.4) {API Call};
+  \node[draw=none, fill=white, align=center] at (-3.43,-7.36) {AI Presdiction\\Response};
+  \draw (2,-8) rectangle (10.41,-11.76);
+  \draw (-5.6,-8) rectangle (1.2,-11.78);
+  \draw[arrows=-Latex] (node5.east) -- (9,-2.55) -- (9,-7.15) -- (7.86,-7.15) -- (node10.north);
+  \draw[arrows=-Latex] (node5.south east) -- (6.63,-3.54) -- (6.66,-7.15) -- (6.67,-8.67) -- (4.15,-8.66) -- (node9.north);
+  \draw (node6.south east) -- (1.15,-6.86) -- (3,-6.86) -- (3,-8.66) -- (4.15,-8.66) -- (node9.north);
+  \node[draw=none, fill=white] at (3,-7.4) {Historical Data Request};
+  \node[draw=none, fill=white] at (6,-5.37) {CRUD Operation};
+  \node[draw=none, fill=white] at (6.95,-2.55) {Cache Read/Write};
+\end{tikzpicture}
   \caption{Overall System Architecture}
   \label{fig:sys-arch}
 \end{figure}
@@ -178,47 +182,28 @@ The diagram below represents the internal structure of the proposed system. In g
 
 \begin{figure}[H]
   \centering
-  \begin{tikzpicture}[
-      scale=0.75, 
-      transform shape,
-      node distance=0.9cm, 
-      userstyle/.style={rectangle, draw, fill=cyan!15, text width=4.5cm, align=center, rounded corners=4pt, minimum height=0.9cm, font=\sffamily\bfseries},
-      appstyle/.style={rectangle, draw, fill=blue!10, text width=4.5cm, align=center, rounded corners=4pt, minimum height=0.9cm, font=\sffamily\bfseries},
-      apistyle/.style={rectangle, draw, fill=purple!10, text width=4.5cm, align=center, rounded corners=4pt, minimum height=0.9cm, font=\sffamily\bfseries},
-      logicstyle/.style={rectangle, draw, fill=red!8, text width=4.5cm, align=center, rounded corners=4pt, minimum height=0.9cm, font=\sffamily\bfseries},
-      dbstyle/.style={cylinder, shape border rotate=90, draw, fill=orange!10, text width=4.0cm, align=center, minimum height=0.9cm, font=\sffamily},
-      resstyle/.style={rectangle, draw, fill=teal!10, text width=4.5cm, align=center, rounded corners=4pt, minimum height=0.9cm, font=\sffamily\bfseries},
-      arrow/.style={thick, -{Stealth}}
-    ]
-    
-    \node[userstyle] (user1) {User};
-    
-    \node[appstyle, below=0.8cm of user1] (app1) {Web / Mobile Application};
-    
-    \node[apistyle, below=0.8cm of app1] (req) {REST API Request};
-    
-    \node[logicstyle, below=0.8cm of req] (auth) {Authentication (JWT)};
-    
-    \node[logicstyle, below=0.8cm of auth] (business) {Business Logic};
-    
-    \node[dbstyle, below=0.8cm of business] (db) {MongoDB Database};
-    
-    \node[resstyle, below=0.8cm of db] (res) {Response};
-    
-    \node[appstyle, below=0.8cm of res] (app2) {Web / Mobile Application};
-    
-    \node[userstyle, below=0.8cm of app2] (user2) {User};
-    
-    \draw[arrow] (user1) -- (app1);
-    \draw[arrow] (app1) -- (req);
-    \draw[arrow] (req) -- (auth);
-    \draw[arrow] (auth) -- (business);
-    \draw[arrow] (business) -- (db);
-    \draw[arrow] (db) -- (res);
-    \draw[arrow] (res) -- (app2);
-    \draw[arrow] (app2) -- (user2);
-    
-  \end{tikzpicture}
+\begin{tikzpicture}
+  \node[draw, align=center, minimum height=42pt, minimum width=137pt] (node1) at (0,0) {User};
+  \node[draw, align=center, minimum height=42pt, minimum width=137pt] (node8) at (6.65,-8.55) {User};
+  \node[draw, align=center, minimum height=42pt, minimum width=137pt] (node2) at (0,-2.49) {Web/Mobile Application};
+  \node[draw, align=center, minimum height=42pt, minimum width=137pt] (node7) at (6.64,-6.15) {Web/Mobile Application};
+  \node[draw, align=center, minimum height=42pt, minimum width=137pt] (node3) at (0,-4.97) {REST API Request};
+  \node[draw, align=center, minimum height=42pt, minimum width=137pt] (node6) at (6.64,-4) {REST API Request};
+  \node[draw, align=center, minimum height=42pt, minimum width=137pt] (node4) at (0,-7.25) {Authentication JWT};
+  \node[draw, align=center, minimum height=42pt, minimum width=137pt] (node5) at (-0.03,-9.36) {Business Logics};
+
+
+  \node[draw, align=center, shape=cylinder, aspect=0.35, shape border rotate=90, minimum width=76pt] (node9) at (6.64,-1.55) {MongoDB\\Database};
+  \draw[->] (node1.south) -- (node2.north);
+  \draw[->] (node2.south) -- (node3.north);
+  \draw[->] (node3.south) -- (node4.north);
+  \draw[->] (node4.south) -- (node5.north);
+
+  \draw[->] (node5.south) -- (0,-10.59) -- (3.61,-10.61) -- (3.61,0.74) -- (6.65,0.74) -- (6.64,-0.3);
+  \draw[->] (node9.south) -- (node6.north);
+  \draw[->] (node6.south) -- (node7.north);
+  \draw[->] (node7.south) -- (node8.north);
+\end{tikzpicture} 
   \caption{System Data Flow}
   \label{fig:req-res-flow}
 \end{figure}
@@ -236,13 +221,14 @@ The general flow of operations and the underlying architecture of the described 
 ]{
   width = \linewidth,
   colspec = {Q[150]Q[140]Q[673]},
-  cells = {c},
+  cells = {c, m},
   row{1} = {font=\bfseries},
+  row{15,16} = {abovesep=5pt, belowsep=5pt},
   cell{2}{1} = {r=2}{},
   cell{4}{1} = {r=3}{},
   cell{7}{1} = {r=5}{},
   cell{12}{1} = {r=3}{},
-  cell{15}{1} = {r=2}{},
+  cell{15}{1} = {r=2}{m},
   hlines,
   vlines,
 }
@@ -260,9 +246,8 @@ Library              & Shadcn/UI          & Used to build a modern, responsive, 
 Development Tool     & Visual Studio Code & Used as the primary code editor for writing, debugging, and maintaining the application.                                           \\
                      & Git  GitHub        & Used for version control, source code management, and team collaboration.                                                          \\
                      & Postman            & Used to test, validate, and debug RESTful API endpoints during development.                                                        \\
-Database             & MongoDB            & Used as the primary NoSQL database for storing application data efficiently.
-
-\\
+\pagebreak
+Database             & MongoDB            & Used as the primary NoSQL database for storing application data efficiently.                                                       \\
                      & Mongoose           & Used as an Object Data Modeling (ODM) library for MongoDB to simplify data modeling and validation.                                \\
 Deployment Tool      & Vercel             & Used to deploy and host the web application with automatic deployment support.                                                     \\
 In-Memory Data Store & Redis              & Used for caching frequently accessed data, improving application performance and reducing database load.                           
@@ -276,22 +261,20 @@ The implementation of the proposed system was performed collectively by three te
   label = {workDivision},
 ]{
   width = \linewidth,
-  colspec = {Q[27]Q[150]Q[827]},
+  colspec = {Q[27]Q[250]Q[827]},
   row{1} = {font=\bfseries},
   hlines,
   vlines,
 }
 \# & Team Member      & Responsibilities                                                                                                                                                                                                                                                           \\
-1  & Showrav\par{} Kormokar & Frontend web development using Next.js, UI development with shadcn/ui, state management using Zustand, dashboard implementation, report generation, testing, and bug fixing.                                                                                               \\
-2  & Md. Rafiz Uddin  & Mobile application development using Flutter, state management with Riverpod, UI implementation, API integration, testing, and bug fixing.                                                                                                                                 \\
-3  & Md. Sohel Rana   & Backend development using Express.js, database design using MongoDB and Mongoose, RESTful API development, authentication and authorization using JWT, Redis caching, AI-based stock forecasting integration, deployment, and system integration, testing, and bug fixing. 
+1  & Showrav\par{} Kormokar\par{} (ID: 222311077) & Frontend web development using Next.js, UI development with shadcn/ui, state management using Zustand, dashboard implementation, report generation, testing, and bug fixing.                                                                                               \\
+2  & Md. Rafiz Uddin\par{} (ID: 222311079)  & Mobile application development using Flutter, state management with Riverpod, UI implementation, API integration, testing, and bug fixing.                                                                                                                                 \\
+3  & Md. Sohel Rana\par{} (ID: 222311057)   & Backend development using Express.js, database design using MongoDB and Mongoose, RESTful API development, authentication and authorization using JWT, Redis caching, AI-based stock forecasting integration, deployment, and system integration, testing, and bug fixing. 
 \end{longtblr}
 
 \section{Time Frame}
 The project was developed according to the prepared schedule to ensure that all aspects of the work would be completed on time. The work was broken down into stages. The Gantt chart below demonstrates the project schedule, task durations, and responsibilities of each team member during the development of the project.
 
-\pagestyle{empty}
-\newpage
 
 \begin{figure}[htbp]
     \centering
