@@ -1,86 +1,442 @@
 \chapter{Standards and Design Constraints}
-[Must be present in FYDP-1 Report and also in Final Report]
-
-Every chapter should start with 1-2 sentences on the outline of the chapter.
+This chapter describe the standards follow when we develop the Pharmaciano system and the design constraints faced throughout the project. Here we also explain how the project maintains software quality, security, communication, and sustainability while consider real limitations.
 
 \section{Compliance with the Standards}
-Only mention the standards that are related to your project. This list is not complete. For each of the standards discuss the alternates with pros and cons and rationale of selection.
+Develop a reliable and maintainable Pharmacy ERP system, many type of software engineering standards and best approaches we followed. This standards help us to improve code, security, communication, and overall system performance.
+
+The selected technologies and standards we chose because they are widely used in the software industry, open source, free, and suitable for our project requirements.
 
 \subsection{Software Standards}
-The Software Standards section describes the guidelines, protocols, and best practices followed during development to ensure the system is reliable, secure, maintainable, and consistent. It typically covers coding standards (naming conventions, formatting), documentation practices, version control, testing standards, security guidelines, and any relevant international or industry standards (e.g., ISO/IEEE). The purpose is to show that the project was developed in a systematic and professional manner, following accepted engineering practices.
+The Pharmaciano system follows common software engineering standards to ensure that the software is secure, maintainable, and easy to understand.
+\\
+\textbf{Coding Standards}\\
+The following coding practices were maintained during development:
+\begin{itemize}
+\item Meaningful variable and function names.
+\item Proper folder and project structure.
+\item Consistent indentation and formatting.
+\item Reusable components and functions.
+\item Separation of frontend and backend logic.
+\item Type safety using TypeScript.
+\end{itemize}
 
-For example, in a thesis/project work, a student may follow coding standards like proper indentation and meaningful variable names, use Git for version control, apply testing standards such as unit and integration testing, and ensure security practices like password hashing and input validation. In a web-based system, they may follow REST API standards and basic OWASP security guidelines to prevent vulnerabilities. Overall, this section demonstrates that the software is developed with quality assurance, consistency, and adherence to recognized standards, making it robust and maintainable.
+\textbf{Version Control}
+Git and GitHub were used for source code management.
+Benefits include:
+\begin{itemize}
+\item Easy collaboration among team members.
+\item Code version history.
+\item Safe rollback to previous versions.
+\item Better project management.
+\item API Standard
+\end{itemize}
+
+The backend follow the RESTful API architecture.
+Features include:
+\begin{itemize}
+\item Standard HTTP methods (GET, POST, PUT, PATCH, DELETE)
+\item Resource-based endpoints
+\item JSON request and response format
+\item Standard HTTP status codes
+\item Stateless communication
+\item Authentication Standard
+\end{itemize}
+
+The system uses JWT (JSON Web Token) authentication.
+Benefits:
+\begin{itemize}
+\item Secure user authentication.
+\item Stateless session management.
+\item Easy integration with web and mobile applications.
+\item Better scalability.
+\item Security Practices
+\end{itemize}
+
+Several security practices were implemented.
+\begin{itemize}
+\item Password hashing before database storage.
+\item Input validation.
+\item Role-Based Access Control (RBAC).
+\item Protected API routes.
+\item Secure token verification.
+\item HTTPS support after deployment.
+\end{itemize}
+
+Comparison of Software Choices
+\small
+
+\begin{longtblr}[
+  caption = {Software Technology Comparison},
+]{
+  width = \linewidth,
+  colspec = {Q[132]Q[132]Q[379]Q[333]},
+  row{1} = {font=\bfseries},
+  hlines,
+  vlines,
+}
+Technology & Alternative & Advantages                                    & Reason for Selection                   \\
+Next.js    & React.js    & Better routing, optimized performance         & Faster and modern frontend development \\
+Express.js & NestJS      & Lightweight and simple                        & Easy development and flexibility       \\
+MongoDB    & MySQL       & Flexible document database                    & Suitable for dynamic ERP data          \\
+Redis      & Memcached   & Supports advanced caching and data structures & Better performance and scalability     \\
+TypeScript & JavaScript  & Type safety and fewer runtime errors          & Improved code quality                  \\
+GitHub     & GitLab      & Large community and easy collaboration        & Free and widely used                   
+\end{longtblr}
+Overall, these software standards improve the quality, reliability, and maintainability of the system.
 
 \subsection{Hardware Standards}
-The Hardware Standards section describes the hardware specifications, guidelines, and best practices followed to ensure the system is safe, reliable, compatible, and efficient. It typically includes details such as required hardware components (e.g., microcontrollers, sensors, servers, PCs), configuration specifications (CPU, RAM, storage), power requirements, interfacing standards, and compliance with safety or industry standards. The purpose is to show that the hardware used is appropriate, standardized, and suitable for the system’s operation.
+Pharmaciano is a software-based ERP system, no specialized hardware is required. The application can run on standard computers and mobile devices with internet connectivity.
 
-For example, in a thesis/project work involving an IoT-based system, the student may use ESP32/Arduino boards, temperature sensors, and regulated power supply, ensuring proper voltage levels (e.g., 5V/3.3V), secure wiring, and standard communication protocols like I2C, SPI, or UART. In a software-only project, this section may describe the minimum system requirements such as a computer with specific CPU, RAM, and OS configuration for deployment. Overall, this section demonstrates that the hardware setup follows standard practices for performance, safety, and compatibility, supporting reliable system operation.
+Minimum Development Hardware
+\begin{longtblr}[
+  caption = {Minimum Hardware Requirement},
+]{
+  width = \linewidth,
+  colspec = {Q[377]Q[529]},
+  row{1} = {font=\bfseries},
+  hlines,
+  vlines,
+}
+Component        & Specification               \\
+Processor        & Intel Core i5 or equivalent \\
+RAM              & 8 GB                        \\
+Storage          & 256 GB SSD                  \\
+Operating System & Windows 10/11, Linux        \\
+Internet         & Broadband Connection        
+\end{longtblr}
+
+Deployment Hardware
+
+The deployed application can run on cloud servers with moderate specifications.
+
+\textbf{Recommended server configuration:}
+\begin{itemize}
+\item Dual-Core Processor
+\item 4 GB RAM
+\item SSD Storage
+\item Linux Operating System
+\item Stable Internet Connection
+\end{itemize}
+\textbf{Alternative Hardware Comparison}
+\begin{longtblr}[
+  caption = {Hardware Comparison},
+]{
+  width = \linewidth,
+  colspec = {Q[146]Q[348]Q[202]Q[242]},
+  row{1} = {font=\bfseries},
+  hlines,
+  vlines,
+}
+Option           & Advantages                                 & Disadvantages           & Selection Reason                 \\
+Local Server     & Full control over hardware                 & Higher maintenance cost & Not selected                     \\
+Cloud Server     & Easy deployment, scalable, low maintenance & Internet dependency     & Selected                         \\
+Dedicated Server & High performance                           & Expensive               & Not suitable for student project 
+\end{longtblr}
+Cloud deployment was selected because it reduces infrastructure cost and provides better accessibility.
 
 \subsection{Communication Standards}
-The Communication Standards section describes the protocols, data formats, and rules used for data exchange between different components of the system (e.g., client–server, device–device, or module–module). It explains how reliable, secure, and consistent communication is ensured, including aspects like network protocols, API design, message formats, error handling, and security measures. The goal is to show that the system follows standardized and interoperable communication practices.
+The Pharmaciano system contains multiple components such as the web application, mobile application, backend server, MongoDB database, Redis cache, and AI service. These components communicate using standard internet protocols.\\
 
-For example, in a thesis/project work, a web-based application may use HTTP/HTTPS protocols with RESTful APIs, exchanging data in JSON format, and applying authentication tokens (e.g., JWT) for secure communication. In an IoT-based project, communication may follow protocols like MQTT, HTTP, or WebSocket, with devices sending sensor data to a cloud server. The section may also mention error handling, data validation, and encryption to ensure reliability and security. Overall, this section demonstrates that the system uses standard, efficient, and secure communication methods for proper interaction between its components.
+\textbf{Communication Protocols}
 
+The following communication standards were used:
+\begin{itemize}
+\item HTTP/HTTPS
+\item RESTful API
+\item JSON Data Format
+\item JWT Authentication
+\item TCP/IP Network Communication
+\item Communication Flow
+\end{itemize}
+
+The communication process is:
+\begin{itemize}
+\item User sends a request from the Web or Mobile App.
+\item Backend API validates the JWT token.
+\item Business logic is executed.
+\item Data is retrieved from MongoDB or Redis.
+\item AI requests are sent to Google Gemini API when needed.
+\item JSON response is returned to the client.
+\item API Communication Features
+\item Stateless communication
+\item Standard HTTP methods
+\item JSON request and response
+\item Error handling using HTTP status codes
+\item Token-based authentication
+\end{itemize}
+
+\textbf{Communication Technology Comparison}
+\begin{longtblr}[
+  caption = {Communication Technology Comparison},
+]{
+  width = \linewidth,
+  colspec = {Q[162]Q[285]Q[494]},
+  row{1} = {font=\bfseries},
+  hlines,
+  vlines,
+}
+Technology & Alternative            & Reason for Selection                  \\
+REST API   & GraphQL                & Easier implementation and maintenance \\
+JSON       & XML                    & Lightweight and faster                \\
+HTTPS      & HTTP                   & Secure communication                  \\
+JWT        & Session Authentication & Better scalability                    
+\end{longtblr}
+
+Following these communication standards makes the system secure, maintainable, and suitable for both web and mobile applications.
 
 \section{Constraints and Limitations}
-The Constraints and Limitations section explains the practical restrictions faced during the project and the inherent weaknesses of the proposed solution. It typically covers constraints such as limited time, budget, hardware resources, dataset size, tools, or technical expertise, as well as system limitations like reduced accuracy, scalability issues, dependency on internet or specific platforms, or restricted functionality. This section should be honest and realistic, showing awareness of what the system cannot fully achieve and why.
+Every software project has some practical limitations due to available resources, budget, development time, and technology. Pharmaciano successfully achieve major objective, face some constraints during development.
 
-For example, in a thesis (research) work, an AI model may be limited by a small or imbalanced dataset, leading to lower generalization performance despite good training accuracy. In a project (system/software) work, such as a web application, limitations may include performance degradation under high user load or dependency on stable internet connectivity. Overall, this section demonstrates critical evaluation and transparency, helping readers understand the scope, challenges, and areas for future improvement.
+This limitations provide opportunities for future improvements and enhancement the system to make more efficient.
 
 \subsection{Economic Constraint}
-The Economic Constraints section explains the financial limitations and affordability considerations that influence the design, development, and deployment of the system. It identifies cost-related factors such as budget limits, hardware/software expenses, maintenance cost, and scalability cost, and describes how the project is designed to remain cost-effective. In a thesis (research) work, for example, a student may use open-source tools (e.g., Python, TensorFlow) and publicly available datasets to minimize expenses while still achieving strong results. In a project (system/software) work, such as a web-based management system, the design may focus on low-cost hosting, minimal hardware requirements, and efficient resource usage—for instance, developing a system that runs on standard servers instead of expensive infrastructure. Overall, this section demonstrates that the solution is economically feasible and sustainable, especially within real-world budget constraints
-\subsection{Environmental Constraint}
-The Environmental Constraints section describes how the system is affected by environmental factors and how it impacts the environment, including issues like energy consumption, hardware usage, heat generation, e-waste, and sustainability. It also explains any limitations due to infrastructure (e.g., power availability, network conditions) and how the design addresses them. In a thesis (research) work, this might involve analyzing computational cost—for example, an AI model may require high GPU power, so the study can discuss optimizing the model to reduce energy consumption or using efficient architectures. In a project (system/software) work, it may focus on deployment—for example, a web system designed to run on low-power servers to reduce electricity usage.
+The project was developed with a very limited budget.
 
-Green computing can be incorporated by adopting environmentally friendly practices such as using energy-efficient algorithms, cloud-based shared resources instead of dedicated hardware, low-power devices, code optimization to reduce CPU usage, and minimizing unnecessary data processing or storage. For instance, a student project could implement a lightweight machine learning model that reduces computation time by 30\%, thereby lowering power consumption and contributing to sustainable computing. Overall, this section shows awareness of environmental impact and demonstrates efforts to design a more sustainable and eco-friendly system.
-To estimate the environmental impact of computation, a simple electricity-based carbon model is applied. Using the Bangladesh grid emission factor ($\approx 0.67$ kg CO$_2$ per kWh), the carbon footprint is computed from the total energy used during model training. A typical large deep-learning workflow may require a 250~W GPU for multiple long training runs, resulting in significantly higher energy use and emissions. In contrast, the proposed LitePhospho model uses a lightweight architecture that trains on a 100~W CPU/small GPU for fewer hours. As a result, the total computational carbon emission is considerably lower.r.
+To focused reduce development costs, only free and open-source technologies are used.
+
+Examples include:
+\begin{itemize}
+\item Next.js
+\item Express.js
+\item MongoDB Community Edition
+\item Redis
+\item Flutter
+\item TypeScript
+\item GitHub
+\item Vercel Free Hosting
+\item Google Gemini Free API
+\end{itemize}
+This approach allowed the complete system to be developed without purchasing expensive software licenses.
+
+If the system is deployed for a large pharmacy organization, additional costs may be required:
+\begin{itemize}
+\item Premium cloud hosting
+\item Domain registration
+\item SSL certificates
+\item Backup services
+\item AI API subscription
+\item Technical support
+\end{itemize}
+
+\subsection{Environmental Constraint}
+Pharmaciano is a fully software-based system, so it is not produced heat, e-waste, or high energy consumption like a hardware or IoT project. However, some environmental and infrastructure factors can still affect this system. We also followed green computing practices to reduce the environmental impact.
+
+Infrastructure factors affecting Pharmaciano:
+\begin{itemize}
+\item In Bangladesh sometimes faces power outages (load shedding), which can interrupt internet connectivity and temporarily stop pharmacy staff(s) from using the system (in the web version).
+\item Poor internet connectivity in small-town areas or villages can slow down or prevent access because Pharmaciano is a cloud-based online system.
+\end{itemize}
+Try to reduce these problems, we used Vercel(hosting), MongoDB Atlas(database), and Redis Cloud(caching), which provide high uptime and automatic backup. This help pharmacy data safe if a local area experiences power or internet issues.
+
+Green computing practices followed:
+\begin{itemize}
+\item Cloud deployment instead of dedicated physical servers, reducing hardware purchase, electricity use, and e-waste.
+\item Shared cloud infrastructure allows multiple users to use the same resources instead of separate hardware.
+\item Redis caching reduces repeated database queries(for AI use), lower CPU usage and server energy consumption.
+\item Digital invoices and online reports reduce paper usage.
+\item Optimized code and efficient database queries reduce unnecessary data processing and energy usage.
+\end{itemize}
+
+Estimated computational carbon impact:
+Pharmaciano does not train its own AI model. It uses the Google Gemini API, which is already trained by Google, so no GPU training is required from our side. If we develope a custom deep learning model, it require a 150–250W GPU(minimum) running for many hours, that producing higher carbon emissions. Instead, Pharmaciano only sends lightweight API requests to Gemini, and development was completed on normal laptops or desktops (around 65/200 W), making the computational carbon footprint very low and same as normal daily computer usage.
+
+Overall, Pharmaciano is designed in an environment-friendly by using shared cloud services and a ready-made AI service instead of heavy hardware and custom AI model training. This helps to keep both energy consumption and carbon emissions low.
 
 \subsection{Ethical Constraint}
-The Ethical Constraints section explains how the project adheres to moral principles and professional responsibilities during development and deployment. It addresses issues such as data privacy, confidentiality, informed consent, fairness, transparency, avoidance of bias, and responsible use of technology. The section identifies potential ethical risks—like misuse of user data, biased AI decisions, or plagiarism—and describes the measures taken to prevent them. In a thesis (research) work, for example, an AI-based system using personal or medical data must ensure data anonymization, secure storage, and proper consent from data sources, while also evaluating and reducing algorithmic bias. In a project (system/software) work, such as a web or mobile application, ethical considerations may include secure authentication, protection of user information, and clear user policies. Overall, this section demonstrates that the system is developed in a way that is fair, responsible, and aligned with professional ethical standards.
+Pharmaciano store important business and customer data, so we try to follow ethical practice during development.
+Possible ethical risks are identified:
+\begin{itemize}
+\item Misuse or leak of customer purchase history and business sales data.
+\item Wrong or biased AI prediction if historical sales data is small or not balanced (example: seasonal medicine demand may predict wrong if pattern not enough in data yet, need at least 3 months data).
+\item Unauthorized users can changing price or stock data for personal benefit.
+\end{itemize}
+
+
+Measure the level of risk and we take to reduce these risk:
+\begin{itemize}
+\item User must authenticate (login) before accessing system.
+\item Password stored using encryption (hashing: cost 12), not plain text.
+\item Role Based Access Control(RBAC) and Permission Based Access Control(PBAC) - only permitted role (super admin, manager, cashier etc., and permissions like manager:create, staff:read, salesman:manage only specific actions which they have permit) can access specific data or feature.
+\item Customer information make confidential, only access by authorized role.
+\item AI (Gemini) prediction used only as suggestion, not automatic decision - pharmacy owner make final call, which reduce risk from wrong or biased AI output.
+\item This system generate detailed, transparent invoice so customer that can see exact price breakdown - supporting the transparency goal mentioned in our project motivation (Chapter 1).
+\item We collect only data needed for pharmacy operation, not unnecessary personal information.
+\end{itemize}
+
 \subsection{Health and Safety Constraint}
-The Health and Safety Constraints section explains how the project considers and minimizes risks to users, developers, and the environment during development and operation. It identifies potential hazards—such as electrical risks (in hardware/IoT projects), prolonged screen exposure, poor ergonomics, data privacy concerns, or system misuse—and describes measures taken to ensure safety and compliance with standards. In a thesis (research) work, for example, an AI-based healthcare system should ensure data privacy, secure handling of sensitive information, and avoidance of misleading outputs that could affect patient decisions. In a project (system/software) work, such as an IoT-based smart device, safety measures may include proper circuit insulation, low-voltage design, secure connections, and user guidelines to prevent accidents. For software-only systems, considerations may include reducing eye strain through UI design, preventing data loss, and ensuring secure authentication. Overall, this section demonstrates that the system is designed with user well-being, safety standards, and risk mitigation in mind.
+Pharmaciano is only software, there are no direct electrical or physical hazard like hardware/IoT project. But system work with health-related product (medicine), so some safety consideration must important.
+\begin{itemize}
+\item UI design for reduce eye strain: make clean layout, proper color contrast, not overcrowded screen (using Shadcn UI and Tailwind), so staff using system for long hour face less eye strain using fuature dark/light theme.
+
+\item Expiry tracking accuracy: correct expiry date and stock alert directly help to avoid selling expired medicine to customer, which is health risk. So we tested this feature carefully (see Chapter 4).
+
+\item Avoid wrong AI output: any wrong prediction can causes pharmacy to order wrong quantity of medicine - shortage of important medicine, or overstock. So why AI is design and use suggestion only and need manual approval, and staff must verify before take any purchase decision.
+
+\item Secure login: to prevent unauthorized access that avoid wrong change stock/price/user data.
+
+\item Data backup: cloud database backup (MongoDB Atlas) reduce chance of loss of important business data with additional securely download backup file feature.
+
+\item Stable system behavior: reduce operational error during daily sale/invoice/stock work with proper worst-case error handling.
+\end{itemize}
+We also encouraged users to follow good computer habit, like avoid long working hour on the screen to take short break.
+
 \subsection{Social Constraint}
-he Social Constraints section explains how the project interacts with and is influenced by societal factors, and how it affects users and communities. It considers issues such as accessibility, cultural sensitivity, digital divide, user acceptance, ethical use, and inclusiveness. The section identifies potential social limitations—like lack of internet access, low digital literacy, language barriers, or resistance to new technology—and describes how the system design addresses them. In a thesis (research) work, for example, an AI-based application may consider bias in data and ensure fairness so that different groups are not disadvantaged. In a project (system/software) work, such as a mobile app, the system may include local language support (e.g., Bangla), simple user interface, and low-bandwidth operation to make it usable for a wider population. Overall, this section demonstrates awareness of the system’s social impact and responsibility, ensuring it is usable, fair, and beneficial to society.
+Pharmaciano is design based on real situation of pharmacy business in Bangladesh.
+Some social challenges are identified:
+\begin{itemize}
+\item Lackaing digital knowledge of some pharmacy staff, specially in small town/village.
+\item Power and internet speeds are not always good in rural area.
+\item Some pharmacy owner resist changing from manual to digital system.
+\item Staff need initial training to use new system.
+\end{itemize}
+How we address these challenge:
+\begin{itemize}
+\item Make simple, clean, user-friendly interface , so staff with low digital knowledge learn easily.
+\item Easy navigation, well organized dashboard that reduce the learning time.
+\item Responsive design works all devices, so pharmacy with only smartphone can also use it.
+\item Step-by-step easy workflow for daily operation, reduce training need.
+\item By compare to complex ERP like SAP or Infor (mentioned in our literature review, Chapter 2), Pharmaciano focused only for pharmacy, which help reduce resistance and improve acceptance.
+\item Frontend make lightweight to load reasonably on average internet speed, full offline mode is not part of current version.
+\end{itemize}
+We add full Bangla language support and low-data/offline mode, to improve accessibility in future version.
 
 \subsection{Sustainability}
-he Sustainability section explains how the project is designed to be environmentally, economically, and socially sustainable over the long term. It highlights practices that reduce resource consumption, ensure efficient operation, and maintain usability for future users. This includes aspects such as energy efficiency, scalability, maintainability, use of open-source technologies, and minimal environmental impact. In a thesis (research) work, for example, a student may develop an optimized AI model that achieves high accuracy with reduced computational cost, thereby lowering energy consumption. In a project (system/software) work, such as a web or IoT system, sustainability may involve low-power hardware, efficient code, cloud-based shared resources, and easy system updates to extend system lifespan. Overall, this section demonstrates that the solution is not only effective now but also viable, efficient, and responsible for long-term use and future development.
+Pharmaciano is not design just to work, but stay useful for long term. We consider sustainability in three way - environmental, economic and social.
+
+Environmental:
+\begin{itemize}
+\item Deployment on cloud (Vercel, MongoDB Atlas, Redis) instead of dedicated server, reduce hardware cost and energy use.
+Caching for reduce repeated processing, save resource.
+\end{itemize}
+
+Economic:
+\begin{itemize}
+\item Open-source technology (Next.js, Express.js, MongoDB, Flutter) there no license fee, keep long term low cost.
+\item Assist AI to reduce medicine waste by overstock or expired inventory,that saving money for pharmacy owner.
+Reusable and modular code reduce in future maintenance cost.
+\end{itemize}
+
+Social:
+\begin{itemize}
+\item Backend is scaleable that allows the system to grow from single server to multi-server without all redesign.
+\item Clean code structure that understand other developer in future and continue the project low effort.
+\item By reducing medicine shortage/expiry, this system also provide long time benefit to wider community, not only for the business owner.
+\end{itemize}
+
 \subsection{Lifelong Learning and Personal Development}
-The Lifelong Learning and Personal Development section highlights how the thesis or project contributed to the student’s continuous learning ability and overall skill development. It reflects on the knowledge and competencies gained during the work, such as learning new programming languages, tools, frameworks, or research methodologies, as well as improving problem-solving, critical thinking, teamwork, and communication skills. In a thesis (research) work, for example, a student may learn how to read and analyze research papers, design experiments, and implement advanced models (e.g., deep learning), which prepares them for future research or higher studies. In a project (system/software) work, a student might gain hands-on experience in system design, debugging, version control, and user interaction—for instance, developing a web application may enhance full-stack development skills and real-world problem-solving ability. Overall, this section demonstrates how the work has strengthened the student’s ability to adapt, learn independently, and grow professionally beyond the project itself.
+Developing Pharmaciano give us learning experience as a 3 member team, since each have different responsibility in this project.
+During this project we improved our knowledge:
+\begin{itemize}
+\item Full stack web development (Next.js, Express.js, TypeScript)
+\item Mobile application development (Flutter)
+\item REST API development and API-first design approach
+\item Database design (MongoDB schema for multi-branch, multi-role ERP)
+\item Authentication and Authorization (JWT, Role Based Access Control)
+\item Redis caching
+\item AI API integration (Google Gemini, OpenAI-standard API)
+\item Git and GitHub collaboration
+\item Software architecture and modular system design
+\item Debugging and troubleshooting real-world issue
+\item Teamwork and project management across 3 members
+\item Communication skill with regular team discussion and make documentation
+\item Problem solving, especially for complex requirement analysis and build like multi-branch/multi-role system
+\item Software deployment (Vercel hosting, environment configuration)
+\end{itemize}
+Each member work on different part (frontend, backend, mobile/AI), we also learn how to collaborate and integrate separate part into one system, that is close to how real software team work in industry.
+This project helped us understand how real business software is design, develope, teste and deploy end to end - experience that gaind for our future career as software engineers.
+
 \section{Cost Analysis}
-The cost-benefit analysis will assess whether the proposed system is economically and practically worthwhile by comparing the total cost of development and operation with the expected benefits. It typically includes cost components such as hardware, software, development time, maintenance, and training, and benefits such as time savings, improved accuracy, efficiency, scalability, or social impact. In a thesis (research) work, this may focus on research value—for example, an AI model developed using open-source tools may have minimal financial cost but high benefit in terms of improved prediction accuracy and contribution to knowledge. In a project (system/software) work, it is often more practical—for example, a web-based management system costing BDT 50,000 to develop may reduce manual work by 70\%, save administrative time, and improve data accuracy, making it cost-effective in the long run. Overall, this section demonstrates that the proposed solution provides greater benefits compared to its cost, justifying its implementation
-Provide a cost analysis in terms of budget required and revenue model. In case of budget, you must show an alternate budget and rationales. 
-\section{Complex Engineering Problem}
+The budget needed to build Pharmaciano and the alternate budget if it is done in commercial way, and possible revenue model. We also connect our gap analysis (Chapter 2) to show why Pharmaciano is cost-effective compare to existing solution.\\
+\textbf{Development Budget (Our Actual Cost — FYDP)}\\
+We build Pharmaciano ourselves as student, using free and open-source tool, our real cost is mainly time and effort, not money.
+
+\begin{longtblr}[
+  caption = {Cost Analysis (Development)},
+]{
+  width = \linewidth,
+  colspec = {Q[263]Q[538]Q[117]},
+  row{1} = {font=\bfseries},
+  cell{10}{1} = {c=2}{0.801\linewidth,r},
+  hlines,
+  vlines,
+}
+Component       & Tool Used                       & Cost  \\
+Hosting         & Vercel (Hobby plan)             & Free  \\
+Database        & MongoDB Atlas (M0 free cluster) & Free  \\
+Caching         & Redis (Upstash free tier)       & Free  \\
+AI Service      & Google Gemini API (free tier)   & Free  \\
+Mobile App      & Flutter (open-source SDK)       & Free  \\
+Version Control & GitHub                          & Free  \\
+Dev Tools       & VS Code, Android Studio         & Free  \\
+Domain          & Vercel default subdomain        & Free  \\
+Total           &                                 & BDT 0 
+\end{longtblr}
+
+\textbf{Alternate Budget (If Develop in Commercially)}\\
+If Pharmaciano is build by hiring professional developer like industry, or scale up for real pharmacy business (more branch, more user, more AI request), the cost more increase:
+
+\begin{longtblr}[
+  caption = {Cost Analysis (Commercially)},
+]{
+  width = \linewidth,
+  colspec = {Q[348]Q[283]Q[308]},
+  row{1} = {font=\bfseries},
+  cell{8}{1} = {c=2}{0.631\linewidth,r},
+  hlines,
+  vlines,
+}
+Component                            & Alternate Option                & Estimated Cost                                              \\
+Developer team (3 people, few month) & Hire junior/freelance developer & BDT 150,000–250,000 (one time)                              \\
+Hosting                              & Vercel Pro                      & \textasciitilde{}\$20/month (\textasciitilde{} BDT 2,300)   \\
+Database                             & MongoDB Atlas M10+              & \textasciitilde{}\$57+/month (\textasciitilde{} BDT 6,500+) \\
+Caching                              & Redis paid tier                 & \textasciitilde{}\$10+/month (\textasciitilde{} BDT 1,150+) \\
+AI Service                           & Gemini paid tier                & Variable, pay per usage                                     \\
+Domain                               & Custom .com domain              & \textasciitilde{} BDT 1,200/year                            \\
+Total (approx, first year)           &                                 & \textasciitilde{} BDT 200,000–300,000                       
+\end{longtblr}
+
+\textbf{Rationale:} For FYDP, We use free tier and self-development because we are student and no funding. The alternate budget show real cost if Pharmaciano become a commercial product - where developer hiring cost and paid cloud service needed to manage more user and data safely.\\
+
+\textbf{Cost-Benefit Comparison}
+From our gap analysis (Chapter 2), SAP and Infor are powerful but too costly and complex for small/medium pharmacy in Bangladesh, while Odoo is cheaper but lack of AI demand forecasting. While Pharmaciano fillup this gaps - pharmacy specific, AI powered, and reasonable priced.\\
+
+If a pharmacy adopt Pharmaciano (example: BDT 1,000-2,000 per branch/month), benefit are:
+\begin{itemize}
+  \item Less manual invoice/accounts work - save staff time.
+  \item Improve financialy by recommending trending medicine through AI demand prediction.
+  \item Reduce human error in stock counting and calculation.
+  \item Better transparency for customer, improving trust to grow business.
+\end{itemize}
+
+So small subscription cost, benefit (time save, less waste, low error) is much bigger than cost - same logic as example in the instruction (a BDT 50,000 system reducing 70\% manual work), which justify Pharmaciano implementation.\\
+
+\textbf{Revenue Model}
+\begin{itemize}
+  \item Subscription (for SaaS) - monthly/yearly fee per branch.
+  \item Tiered pricing - basic plan (POS + inventory) vs premium plan (AI prediction + multi-branch + advanced report).
+  \item One-time onboarding/setup fee for data migration and staff training.
+  \item Optional supplier/vendor listing fee, system support multi-vendor.
+\end{itemize}
+
 
 \subsection{Complex Problem Solving} 
-The Complex Engineering Problem (CEP) section explains why a thesis or project involves significant engineering difficulty, requiring analysis, judgment, and integration of multiple factors rather than a routine solution. To justify CEP (as per BAETE/Washington Accord style), you should explicitly show that the work satisfies WP1, WP2, and WP3.
+This section explain why building Pharmaciano is not a simple task, qualify to Complex Engineering Problem (CEP) and involve Complex Engineering Activities (CEA), following BAETE/Washington Accord style.
 \\
-WP1 (Depth of Knowledge Required): The problem demands advanced and specialized knowledge beyond basic coursework. 
-
-WP2 (Range of Conflicting Requirements): The solution must balance multiple, often conflicting constraints (e.g., accuracy vs. cost, performance vs. energy, usability vs. security).
-
-WP3 (Depth of Analysis Required): The problem requires in-depth analysis, modeling, experimentation, and evaluation of alternatives, not a straightforward implementation.
-\\
-
-Example (Thesis Work – AI-based Disease Prediction)
-
-This work can be justified as a CEP because:
-
-WP1: It requires knowledge of machine learning, deep learning architectures, and data preprocessing techniques. 
-
-WP2: It must balance high accuracy with limited dataset size, computational cost, and ethical concerns like data privacy. 
-
-WP3: It involves extensive experimentation (model tuning, comparison with baseline models, performance evaluation using metrics like accuracy and F1-score).
-\\
-
-Example (Project Work – Smart Traffic Management System)
-
-WP1: Requires knowledge of IoT, networking, and real-time systems. 
-
-WP2: Must handle conflicts between real-time performance, cost of sensors, network latency, and scalability. 
-
-WP3: Requires analysis of traffic patterns, algorithm design for signal optimization, and testing under different traffic scenarios. 
-
-Overall, the CEP section should clearly demonstrate that the work involves advanced knowledge, multiple constraints, and rigorous analysis, thereby qualifying it as a Complex Engineering Problem rather than a simple or routine task.
+\subsubsection{Complex Problem Solving}
+\begin{longtblr}[
+  caption = {How Pharmaciano Satisfies WP1--WP3},
+]{
+  width = \linewidth,
+  colspec = {Q[104]Q[837]},
+  row{1} = {font=\bfseries},
+  hlines,
+  vlines,
+}
+Criteria                                & How Pharmaciano Satisfy It\\
+WP1 – Depth of Knowledge                & Building Pharmaciano requires knowledge out of normal coursework — full stack development (Next.js, TypeScript, Express.js), mobile development (Flutter), database schema design for a complex multi-branch and multi-role system, authentication and Role-Based Access Control (RBAC), caching strategy (Redis), REST API design, integration of a third-party AI API (Gemini) for forecasting, and basic accounting and ledger logic for the account module.                  \\
+WP2 – Range of Conflicting Requirements & We balance many conflicting needs together: centralized data (medicine, brand, category) versus decentralized branch-wise data (stock, orders, customer); flexible custom role permission versus strict security; simple, easy UI versus powerful ERP features (multi-branch, multi-warehouse, accounts); zero budget (free-tier tools) versus good performance and scalability; AI prediction accuracy versus the limitation of the free Gemini API rate limit.                 \\
+WP3 – Depth of Analysis Required        & We performe comparative analysis of existing solution such as SAP, Odoo, and Infor in the gap analysis chapter before designing our system. We also compare technology choices with pros and cons — MongoDB vs. QL, JWT vs. ession, REST vs. raphQL, Redis vs. o caching — in Section 5.1. In addition, we tested and evaluated AI prediction against real sales data and measured performance under concurrent user load in Chapter 4, instead of only a simple implementation. 
+\end{longtblr}
 
 In this section, provide a mapping with problem solving categories. For each mapping add subsections to put rationale (Use Table~\ref{tab:p_solve}). For P1, you need to put another mapping with Knowledge profile and rational thereof.
 
@@ -103,26 +459,19 @@ In this section, provide a mapping with problem solving categories. For each map
 \end{center}
 
 \subsection{Engineering Activities}
-The Complex Engineering Activities (CEA) section explains how the student has carried out non-routine, technically demanding engineering tasks that involve design, implementation, and decision-making under constraints. It demonstrates that the work is not just theoretical but includes practical realization, integration of components, testing, and iterative improvement. To justify CEA (aligned with BAETE/Washington Accord), you should explicitly show that the work satisfies EA1 and EA2:
-
-EA1 (Range of Resources and Techniques): The project uses diverse tools, technologies, and methods, such as programming frameworks, hardware/software integration, simulations, datasets, and testing tools.
-
-EA2 (Level of Interaction and Integration): The work involves integration of multiple subsystems or components, requiring coordination between different modules, technologies, or stakeholders.
-\\
-
-Example (Thesis Work – AI-based Disease Detection)
-
-EA1: Uses Python, TensorFlow/PyTorch, data preprocessing techniques, and performance evaluation tools.
-
-EA2: Integrates data collection, preprocessing pipeline, model training, evaluation, and possibly a user interface for prediction, forming a complete system.
-\\
-
-Example (Project Work – Smart Home Automation System)
-EA1: Uses microcontrollers (e.g., Arduino/ESP32), sensors, mobile app development, and networking protocols.
-
-EA2: Integrates hardware (sensors/actuators), software (control logic), and communication (Wi-Fi/Bluetooth) into a unified system.
-
-Overall, this section should clearly show that the student has engaged in hands-on engineering activities involving multiple tools and system integration, proving the work qualifies as Complex Engineering Activities, not just a simple or isolated task.
+\begin{longtblr}[
+  caption = {How Pharmaciano Satisfies EA1--EA2},
+]{
+  width = \linewidth,
+  colspec = {Q[94]Q[846]},
+  row{1} = {font=\bfseries},
+  hlines,
+  vlines,
+}
+Criteria                                   & How Pharmaciano Satisfy It                                                                                            \\
+EA1 – Range of Resources and Techniques    & We used a diff. set of tools and technologies: Next.js, TypeScript, Zustand, Shadcn UI, and Tailwind CSS for the frontend; Express.js, MongoDB, Redis, and JWT for the backend; Flutter/Dart for the mobile app; Google Gemini API for AI prediction; Git/GitHub for version control; Postman for API testing; and Vercel and MongoDB Atlas for cloud deployment.                                                                                                                                                                     \\
+EA2 – Level of Interaction and Integration & Pharmaciano integrates many subsystems — authentication and RBAC, multi-branch and multi-warehouse inventory, POS and sales, automatic invoices, supplier and purchase management, accounts and ledger, and AI prediction — all connected through one backend and database. It also requires integration between the web frontend, mobile app, and backend API, plus coordination among our three team members working on separate responsibilities (frontend, backend, and mobile/AI) to combine everything into one working system. 
+\end{longtblr}
 
 In this section, provide a mapping with engineering activities. For each mapping add subsections to put rationale (Use Table~\ref{tab:e_act}).
 \begin{center}
@@ -144,3 +493,4 @@ In this section, provide a mapping with engineering activities. For each mapping
 \end{center}
 
 \section{Summary}
+This chapter we discussed the standards and design constraints that followed during the development of the Pharmaciano system. It describe the software, hardware, and communication standards used to build a secure, reliable, and maintainable ERP solution. The chapter also described the project constraints, including economic, environmental, ethical, health and safety, social, and sustainability considerations, with the learning outcome and experience gain when develop the system. Overall, these standard and design help to create a practical, scalable, cost-effective, and user-friendly pharmacy management system that suitable for pharmacy in Bangladesh.

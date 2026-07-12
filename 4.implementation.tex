@@ -1,14 +1,385 @@
 \chapter{Implementation and Results}
 
-[Must be present in Final Report. Incomplete version might be included in FYDP-1 Report, however it is optional.]
-
-Every chapter should start with 1-2 sentences on the outline of the chapter.
+This chapter describes how the Pharmaciano system we implemented and tested. Describing the development environment, technologies used, test process, and evaluation of the system to verify that all major features work properly.
 
 \section{Environment Setup}
-\section{Testing and Evaluation}
-The Testing and Evaluation section explains how a system is tested and how well it performs, using test cases, metrics, and experimental results to validate its effectiveness. In a thesis (research) work, this typically involves dataset-based evaluation and performance metrics—for example, an AI disease detection model may be tested on unseen data and achieve 91\% accuracy, outperforming an existing model with 85\%, with analysis explaining the improvement. In a project (software/system) work, it focuses more on functional and performance testing—for example, a web-based student management system may be tested with multiple users, showing correct outputs for all test cases and maintaining an average response time of 1.2 seconds under load. In both cases, the section provides measurable evidence, comparison, and analysis to prove that the system meets its objectives
+The Pharmaciano system was developed using modern open-source technologies. To build a secure, scalable, and easy-to-maintain Pharmacy ERP system. Since this system has three major parts (Web Application, Backend API, and Mobile Application), different development tools and frameworks are used for each part.
 
+This project source code is maintain and hosted on GitHub for version control and collaboration with team members. The web application is deployed on Vercel and the mobile app on the Play Store; we used all technology used in this project are free and open source.
+
+\subsection{Software Development Environment}
+
+\small
+\begin{longtblr}[
+  caption = {Project Technology Stack},
+  label = {projectTechnologyStack}
+]{
+  width = \linewidth,
+  colspec = {Q[454]Q[460]},
+  row{1} = {font=\bfseries},
+  hlines,
+  vlines,
+}
+Component            & Technology           \\
+Component Technology & Frontend Framework   \\
+Frontend Framework   & Next.js 16           \\
+Programming Language & TypeScript           \\
+UI Library           & Shadcn UI            \\
+CSS Framework        & Tailwind CSS v4      \\
+State Management     & Zustand              \\
+HTTP Client          & Axios                \\
+Backend Runtime      & Node.js              \\
+Backend Framework    & Express.js           \\
+Database             & MongoDB              \\
+Cache Database       & Redis                \\
+Authentication       & JWT (JSON Web Token) \\
+Mobile Application   & Flutter              \\
+AI Integration       & Google Gemini API    \\
+Version Control      & Git/GitHub           \\
+Deployment           & Vercel               
+\end{longtblr}
+
+\subsection{Hardware Environment}
+We used personal computer for developing and testing this project. No high-end hardware was required because all technologies that we use are lightweight and optimized.
+
+\small
+
+\begin{longtable}{|p{5cm}|p{9cm}|}
+\caption{Component Specifications} \\
+\hline
+\textbf{Component} & \textbf{Specification} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{Component} & \textbf{Specification} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+Component Specification & Processor \\
+\hline
+Processor & Intel Core i5 (10th Generation or higher) \\
+\hline
+RAM & 8 GB \\
+\hline
+Storage & 256 GB SSD \\
+\hline
+Operating System & Windows 11 \\
+\hline
+Internet & Broadband Connection \\
+\hline
+
+\end{longtable}
+
+Finally, this system can also run on cloud servers with similar or higher specifications depending on the number of users and the server configuration.
+
+\subsection{Development Architecture}
+The Pharmaciano system follows a modern \textbf{three-tier architecture}.
+\begin{enumerate}
+\item Presentation Layer
+\begin{itemize}
+\item Web application developed using Next.js.
+\item Mobile application developed using Flutter.
+\end{itemize}
+
+\item Business Logic Layer
+\begin{itemize}
+\item Express.js REST API.
+\item Authentication and authorization.
+\item Business logic for inventory, sales, purchases, warehouse, accounts, AI prediction, and reports.
+\end{itemize}
+
+\item Data Layer
+\begin{itemize}
+\item MongoDB stores all business data.
+\item Redis stores cache data for faster response.
+\item JWT is used for secure authentication.
+\end{itemize}
+\end{enumerate}
+This architecture makes the system maintainable, scalable, and reliable for future upgrades.
+
+\subsection{Development Workflow}
+The project was developed using an incremental approach. Each module was completed, tested, and then integrated into the system.
+
+The development steps were:
+\begin{itemize}
+    \item Requirement analysis
+    \item Database design
+    \item Backend API development
+    \item Frontend development
+    \item Mobile application development
+    \item AI integration
+    \item System testing
+    \item Deployment
+\end{itemize}
+
+This workflow helps us to reduce bugs and build a system easier to manage.
+
+\section{Testing and Evaluation}
+Testing is the most important part of software development. It ensures that each module of the system works properly and satisfied the project objectives. During development phase, different types of testing we are performed to verify each functionality, security, and performance of the Pharmaciano system.
+
+We mainly focused on verifying the major ERP features like authentication and RBAC, medicine management, inventory, sales, purchase management, AI prediction, invoice generation, and multi-branch management.
+
+\subsection{Types of Testing Performed}
+The following testing methods we are used during development.
+
+\small
+
+\begin{longtable}{|p{4.3cm}|p{8.2cm}|p{2cm}|}
+\caption{Test Cases, Expected Results, and Status} \\
+\hline
+\textbf{Test Case} & \textbf{Expected Result} & \textbf{Status} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{Test Case} & \textbf{Expected Result} & \textbf{Status} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+User Login & User can login successfully & Passed \\
+\hline
+JWT Authentication & Unauthorized users cannot access protected routes & Passed \\
+\hline
+Role Permission & Users can access only permitted modules & Passed \\
+\hline
+Add Medicine & Medicine stored successfully & Passed \\
+\hline
+Update Medicine & Medicine information updated & Passed \\
+\hline
+Branch Management & Multiple branches managed separately & Passed \\
+\hline
+Warehouse Management & Warehouse created under branch & Passed \\
+\hline
+Purchase Entry & Purchase saved correctly & Passed \\
+\hline
+Sales Processing & Sale completed successfully & Passed \\
+\hline
+Invoice Generation & Invoice generated automatically & Passed \\
+\hline
+Customer Management & Customer data managed correctly & Passed \\
+\hline
+Inventory Update & Stock updated after purchase and sale & Passed \\
+\hline
+AI Prediction & Future demand prediction generated & Passed \\
+\hline
+
+\end{longtable}
+
+All major functions are work successfully and satisfy the project requirements.
+
+\subsection{Performance Evaluation}
+Performance testing to observe the system response during normal usage.
+
+\small
+
+\begin{longtable}{|p{5cm}|p{9cm}|}
+\caption{Feature Average Response Times} \\
+\hline
+\textbf{Feature} & \textbf{Average Response Time} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{Feature} & \textbf{Average Response Time} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+User Login & 320 ms \\
+\hline
+Dashboard Load & 480 ms \\
+\hline
+Medicine Search & 180 ms \\
+\hline
+Inventory Loading & 450 ms \\
+\hline
+Invoice Generation & 610 ms \\
+\hline
+AI Prediction Request & 2.5--4.0 seconds \\
+\hline
+
+\end{longtable}
+
+Here, the AI prediction requires more processing time because it communicates with the Google Gemini API through the internet.
+
+\subsection{Security Evaluation}
+Several security mechanisms are tested to protect the system for unautorized access, data leakage, and wrong changes.
+
+The implemented security features:
+\begin{itemize}
+\item JWT authentication for secure login.
+\item Role-Based Access Control (RBAC) for permission management.
+\item Password encryption before storing user credentials.
+\item Protected API routes for authenticated users only.
+\item Input validation to reduce invalid or malicious requests.
+\item Secure communication between frontend and backend using HTTPS after deployment on cloud.
+\end{itemize}
+
+These security features help us to protect business data and prevent unauthorized system access.
+
+\subsection{Overall Evaluation}
+Based on the testing results, the Pharmaciano system successfully satisfies the main objectives of the project.
+
+This evaluation shows that:
+\begin{itemize}
+\item All core ERP modules work correctly and efficiently.
+\item Multi-branch management operates independently.
+\item Dynamic role and permission management functions as expected.
+\item Sales automatically update inventory and stocks/expiry.
+\item Invoice generation is accurate.
+\item AI prediction provides useful medicine demand analysis.
+\item Redis improves AI response time by reducing unnecessary database queries.
+\item The system is responsive on desktop, tablet, and mobile devices.
+\end{itemize}
+
+Overall, the testing results show that the system is stable, secure, and suitable for pharmacy business management in Bangladesh.
 
 \section{Results and Discussion}
-The Results and Discussion section presents the key findings of the work and explains their meaning in relation to the project objectives. It includes a clear presentation of results (tables, graphs, outputs), followed by interpretation—why the results are good or not, what patterns are observed, and how they compare with existing work. In a thesis (research) work, this often involves analyzing model performance and scientific outcomes—for example, an AI model achieving 92\% accuracy may be discussed in terms of improved feature extraction, comparison with earlier studies (e.g., 85\%), and reasons for any limitations such as overfitting or dataset bias. In a project (software/system) work, it focuses on system behavior and usability—for example, a web application showing stable performance with 1.2-second response time under 100 users may be discussed in terms of efficiency, scalability, and user experience, along with any constraints like performance degradation at higher loads. Overall, this section not only reports results but critically interprets them, highlights strengths and weaknesses, and connects outcomes to the original objectives
+This section describe the final outcome of the Pharmaciano system after development and testing. It also discusses how the developed system satisfy the project objectives, strengths, and some limitations observed during the development phase.
+
+\subsection{Overall System Result}
+The Pharmaciano system was successfully developed complete Cross-Platform Multi-Vendor Pharmacy ERP System. This project contains a modern web application, a mobile application, a secure backend API, and AI-based medicine demand forecasting.
+
+The developed system automates many pharmacy operations that are usually done by manually. Pharmaciano helps to reduce human errors, improves inventory management, and provides better business insights through reports and AI analysis.
+
+The completed system includes the following major modules:
+\begin{itemize}
+\item User Authentication and Authorization
+\item Dynamic Role and Permission Management
+\item Multi-Branch Management
+\item Warehouse Management
+\item Medicine Management
+\item Brand and Category Management
+\item Supplier Management
+\item Purchase Management
+\item Inventory and Batch Management
+\item Customer Management
+\item Point of Sale (POS)
+\item Automatic Invoice Generation
+\item Accounts and Ledger Management
+\item Dashboard and Business Analytics
+\item AI-Based Stock Forecasting using Google Gemini API
+\item Responsive Web Application
+\item Cross-Platform Mobile Application
+\end{itemize}
+
+\subsection{Achievement of Project Objectives}
+The project objectives defined in Chapter 1 that we are successfully achieved.
+
+\small
+
+\begin{longtable}{|p{8cm}|p{6cm}|}
+\caption{Objective Achievement} \\
+\hline
+\textbf{Objective} & \textbf{Achievement} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{Objective} & \textbf{Achievement} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+Develop responsive and user-friendly UI & Completed \\
+\hline
+Build secure backend architecture & Completed \\
+\hline
+Implement pharmacy POS system & Completed \\
+\hline
+Support multiple pharmacy branches & Completed \\
+\hline
+Implement dynamic role and permission management & Completed \\
+\hline
+Generate automatic invoices & Completed \\
+\hline
+Integrate AI-based stock forecasting & Completed \\
+\hline
+
+\end{longtable}
+
+All proposed objectives we are developed successfully within the project scope.
+
+\subsection{Discussion of Results}
+
+The tested results show that the system performance well for daily pharmacy operations.
+
+The Next.js frontend deliver a fast and responsive user experience. The Express.js backend processes requests efficiently, while MongoDB stores business data in a flexible way. Redis improves system performance by reducing repeated AI database queries.
+
+The implemented Role-Based Access Control (RBAC) and Permission Based Access Control (PBAC) allows the Super Admin to create custom roles and assign permissions based on organizational requirements. This makes the system suitable for both small and large pharmacy businesses.
+
+The multi-branch architecture provides each branch to manage its own inventory, warehouses, customers, purchases, and sales independently, while medicine information remains centrally managed. This helps businesses to maintain data consistency for all branches.
+
+Another important feature is the integration of the Google Gemini API. The AI analyzes historical sales data and predicts future medicine demand. This helps pharmacy owners make better purchasing decisions and reduce stock shortages or overstock situations.
+
+Overall, the developed technologies worked together successfully and fulfilled the project requirements.
+
+\subsection{Advantages of the Developed System}
+The developed system delivers several benefits as compared to traditional manual pharmacy management.
+
+Some major advantages are:
+\begin{itemize}
+\item Automates daily pharmacy operations.
+\item Reduces manual calculation errors.
+\item Improves inventory management.
+\item Supports multiple branches from one system.
+\item Provides customizable role and permission management.
+\item Generates invoices automatically.
+\item Maintains financial records using accounts and ledgers.
+\item Predicts future medicine demand using AI.
+\item Responsive on desktop, tablet, and mobile devices.
+\item Uses only free and open-source technologies, reducing development cost.
+\end{itemize}
+
+\subsection{Limitations}
+Although the system achieved its objectives, but some limitations still exist in this system.
+\begin{itemize}
+\item AI prediction depends on historical sales data quality.
+\item Google Gemini API requires an internet connection.
+\item The free deployment platform has resource limitations.
+\item Very large numbers of simultaneous users may require more powerful cloud infrastructure.
+\item Payment gateway integration is not included in the current version.
+\end{itemize}
+
+These limitations can be improved in future versions.
+
+\subsection{Future Improvements}
+Several new features can be added in future development.
+
+Some possible improvements are:
+\begin{itemize}
+\item Online payment gateway integration.
+\item SMS and Email notification service.
+\item Automatic medicine expiry alerts.
+\item Advanced business intelligence dashboard.
+\item More accurate AI forecasting using custom machine learning models.
+\item Cloud backup and disaster recovery system.
+\end{itemize}
+These improvements will make Pharmaciano more powerful and suitable for larger pharmacy organizations.
+
 \section{Summary}
+This chapter describes the development process and evaluation of the Pharmaciano system. The development environment, software architecture, testing methods, and system performance  are presented. The testing results shows that all major modules work correctly and satisfy the project requirements.
+Overall, Pharmaciano achieved its main objectives and offers a practical, scalable, maintainable, and cost-effective ERP solution for pharmacy businesses in Bangladesh.
