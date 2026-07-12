@@ -106,19 +106,54 @@ The proposed cross-platform multi-vendor pharmacy ERP system with AI-based stock
   \caption{Context Diagram}
   \label{fig:context-diagram}
 \end{figure}
-
+\newpage
 \subsection{UI Design}
 To design UI we followed two main CSS frameworks for web like:
 \begin{itemize}
   \item Shadcn
   \item TailwindCSS
 \end{itemize}
-Here are some of our UI screens for web:
-\begin{figure}[h]
-\caption{Login UI}
-\centering
-\includegraphics[scale=0.15]{./images/login_page.png}
+We designed our UI to provide a clean and user friendly interface. Here are some of our UI screens for web:
+\uifig{Login UI}{login_page.png}{0.17}
+\uifig{Dashboard UI (I)}{dashboard01.png}{0.17}
+\uifig{Dashboard UI (II)}{dashboard02.png}{0.17}
+\uifig{Medicine List UI}{medicine.png}{0.17}
+\uifig{Sales List UI}{sale_list.png}{0.17}
+\uifig{POS UI}{pos01.png}{0.17}
+\uifig{POS Invoice UI}{pos02.png}{0.17}
+\uifig{Purchase (of Batch) Create UI}{purchase01.png}{0.17}
+\uifig{Purchase (of Batch) List UI}{purchase02.png}{0.17}
+\uifig{Role List UI}{role_list01.png}{0.17}
+\uifig{Create User UI}{create_user01.png}{0.17}
+\uifig{Demand Prediction UI (I)}{ai_page01.png}{0.17}
+\uifig{Demand Prediction UI (II)}{ai_page02.png}{0.22}
+\newpage
+Here are some of our UI screens for mobile app:
+
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{./images/flutter1.png}
+        \caption{Login}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{./images/flutter2.png}
+      \caption{POS }
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{./images/flutter3.png}
+      \caption{POS Complete}
+    \end{subfigure}
+    \caption{Mobile App UI}
+    \label{fig:mobile-screens}
 \end{figure}
+    
 
 \section{Detailed Methodology and Design}
 The proposed A Cross-Platform Multi-Vendor Pharmacy ERP System with AI-Based Stock Forecasting and Analytics adopted the client-server architecture, which ensured scalability, operability, and effective communication of the system’s components. The system comprised three main parts: frontend, backend, and database. The frontend included the website, which was built on NextJS framework, and the mobile application, which was developed in Flutter framework. The website and the mobile app used REST API for effective communication with the backend.
@@ -210,9 +245,7 @@ The diagram below represents the internal structure of the proposed system. In g
 
 
 \section{Tools and Technologies Used}
-The proposed system was designed using the latest programming languages, frameworks, libraries, databases, and development tools. The choice of these technologies was determined by their ability to meet all requirements: high performance, scalability, security, maintainability, and the ability to implement cross-platform, multi-vendor ERP software with AI analytics.
-
-The general flow of operations and the underlying architecture of the described system are diagrammed below.
+The proposed system was designed using the latest programming languages, frameworks, libraries, databases, and development tools. The general flow of operations and the underlying architecture of the described system are diagrammed below.
 
 
 \begin{longtblr}[
@@ -235,6 +268,7 @@ The general flow of operations and the underlying architecture of the described 
 Category             & Technology         & Purpose                                                                                                                            \\
 Programming Language & TypeScript         & Used for developing the web application and backend. It provides static typing, improves code quality, and reduces runtime errors. \\
                      & Dart               & Used for developing the Flutter mobile application using a single codebase for multiple platforms.                                 \\
+\pagebreak
 Framework            & Next.js            & Used to build the web application with server-side rendering, optimized performance, and improved user experience.                 \\
                      & Express.js         & Used to develop RESTful APIs, implement business logic, and handle communication between the client and database.                  \\
                      & Flutter            & Used to develop cross-platform mobile applications for Android and iOS from a single codebase.                                     \\
@@ -246,7 +280,6 @@ Library              & Shadcn/UI          & Used to build a modern, responsive, 
 Development Tool     & Visual Studio Code & Used as the primary code editor for writing, debugging, and maintaining the application.                                           \\
                      & Git  GitHub        & Used for version control, source code management, and team collaboration.                                                          \\
                      & Postman            & Used to test, validate, and debug RESTful API endpoints during development.                                                        \\
-\pagebreak
 Database             & MongoDB            & Used as the primary NoSQL database for storing application data efficiently.                                                       \\
                      & Mongoose           & Used as an Object Data Modeling (ODM) library for MongoDB to simplify data modeling and validation.                                \\
 Deployment Tool      & Vercel             & Used to deploy and host the web application with automatic deployment support.                                                     \\
@@ -274,7 +307,7 @@ The implementation of the proposed system was performed collectively by three te
 
 \section{Time Frame}
 The project was developed according to the prepared schedule to ensure that all aspects of the work would be completed on time. The work was broken down into stages. The Gantt chart below demonstrates the project schedule, task durations, and responsibilities of each team member during the development of the project.
-
+\newpage
 
 \begin{figure}[htbp]
     \centering

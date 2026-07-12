@@ -33,6 +33,15 @@
 \usepackage{float}
 \usepackage{pgfgantt}
 \usepackage{xcolor}
+\usepackage{caption} 
+\usepackage{subcaption}
+\newcommand{\uifig}[3]{%
+    \begin{figure}[H]
+        \centering
+        \caption{#1}
+        \includegraphics[scale=#3]{./images/#2}
+    \end{figure}
+}
 \pagestyle{fancy}
 
 
