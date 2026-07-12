@@ -1,42 +1,353 @@
 \chapter{System Architecture}
-
-[Must be present in FYDP-1 Report and also in Final Report]
-
-Every chapter should start with 1-2 sentences on the outline of the chapter.
+This chapter contains the general description of the proposed system. It covers the system requirements, architecture, database design, and technologies used to develop the application.
 
 \section{Requirement Analysis}
-\subsection{Functional and Nonfunctional Requirements}
-The Functional and Non-Functional Requirements Analysis section defines what the system will do and how well it will perform, forming the foundation for design and implementation. Functional requirements describe the core features and operations of the system (e.g., user registration, data processing, report generation), while non-functional requirements specify quality attributes such as performance, security, usability, reliability, and scalability. This section should present requirements clearly—often using bullet points or tables—and may include use cases or scenarios.
+Requirement Analysis defines what the proposed system is expected to do and how it is supposed to perform to fulfill the stated objectives. It serves as the basis for system design and implementation because it highlights what the proposed system does, its behavior, and the quality attributes expected of the system.
 
-In a thesis (research) work, for example, an AI-based prediction system may include functional requirements like data input, model training, and prediction output, and non-functional requirements like high accuracy, low computation time, and secure data handling. In a project (system/software) work, such as a web-based management system, functional requirements may include login, data entry, and report generation, while non-functional requirements may include fast response time (e.g., <2 seconds), user-friendly interface, and support for multiple users. Overall, this section ensures that the system is clearly defined, measurable, and aligned with user and system expectations.
+The proposed system, A Cross-Platform Multi-Vendor Pharmacy ERP System with AI-Based Stock Forecasting and Analytics, is intended to automate the management of various departments in multiple pharmacies. The system is designed to manage stock, purchases, sales, suppliers, customers, employees, finances, reports, and notifications in a cross-platform environment while enforcing the role-based management of the system functions. The system will also utilize artificial intelligence to analyze previous sales and stock data to forecast future medicine needs, highlight potential shortages and expiry risks, and recommend the quantities to purchase for the different pharmacies.
+
+\subsection{Functional and Nonfunctional Requirements}
+The requirements of the proposed system can be organized into two major categories namely, the Functional Requirements and Non-Functional Requirements.
+
+\subsubsection*{Functional Requirements}
+Functional requirements describe the specific features and services that the system must provide to its users.\\
+
+\noindent The proposed system shall:
+\begin{enumerate} 
+    \item Allow users to register and login to the system using unique credentials.
+    \item Allow users to access the features of the system based on the assigned roles.
+    \item Allow the organization and branches to manage their pharmacies.
+    \item Allow the management of medicine categories, manufacturers, dosage forms, strengths, and prices.
+    \item Record and store the details of suppliers and purchases.
+    \item Record and store the stock, batch numbers, expiry dates, and purchase details of the medicines.
+    \item Process medicine sales and update stock details.
+    \item Generate invoices and sales receipts.
+    \item Record customer and employee details.
+    \item Record and store the income and expenses.
+    \item Generate reports on sales, purchases, stock, and profit.
+    \item Send notifications on low stock and expiry dates of medicines.
+    \item Process medicine sales and update stock details.
+    \item Display statistical reports and graphs.
+    \item Use artificial intelligence to analyze sales and inventory data.
+    \item Predict medicine demand using artificial intelligence.
+    \item Suggest the quantity of medicines to reorder based on predicted demand.
+    \item Identify medicines that are likely to be in short supply.
+    \item Identify medicines that are about to expiry and notify the relevant users.
+    \item Store the results of the artificial intelligence analysis for future reference.
+\end{enumerate}
+
+\subsubsection*{Non-Functional Requirements}
+The non-functional requirements of the proposed system can be defined as the features and services that are not directly related to the services that the system provides but are necessary for the proper functioning of the system.\\
+
+\noindent The proposed system shall:
+\begin{enumerate} 
+    \item Respond to requests from users quickly.
+    \item Provide secure access to the features of the system.
+    \item Secure sensitive information about the business using encryption.
+    \item Provide reliable information.
+    \item Allow multiple organizations and users to access the system.
+    \item Provide graphical displays and user-friendly interfaces.
+    \item Enable easy and efficient data management.
+    \item Allow the system to be scalable and adaptable to the growth of the business.
+    \item Generate reports on demand, sales, inventory, and profit with ease.
+    \item Accurately predict demand based on historical demand and inventory data.
+    \item Ensure fault tolerance and data integrity.
+    \item Allow users to maintain and update the system easily due to its modular nature.
+    \item Be compatible with web browsers and devices.
+    \item Have minimal downtime during maintenance and updates.
+\end{enumerate}
 
 \subsection{Context Diagram}
-The Context Diagram section provides a high-level graphical overview of the system, showing how the proposed project interacts with external entities (users, systems, or organizations) through data flows. It represents the entire system as a single process (black box) and illustrates only the inputs and outputs, without showing internal details. The section should include a labeled diagram along with a short explanation of each external entity and the type of data exchanged.
+A context diagram depicts a high-level overview of the proposed system and its relationship to the environment, which is also essential in understanding the overall purpose and boundaries of the system. It is worth noting that the context diagram does not indicate the system’s inner structure, including the frontend, backend, database, and the AI system. Instead, this diagram type describes the interaction processes of the users and the system, providing an insight into how users communicate with the system and exchange data.
 
-For example, in a thesis or project work like a Student Management System, the context diagram would show the system at the center, with external entities such as Student, Teacher, and Admin. Data flows may include login requests, student information, marks entry, and result reports. The accompanying description should briefly explain how each entity interacts with the system. Overall, this section helps readers quickly understand the system boundary, scope, and interactions, serving as a foundation for more detailed design diagrams.
+The proposed cross-platform multi-vendor pharmacy ERP system with AI-based stock forecasting and analytics contains numerous external entities. Among them are Super Admin, Organization Admin, Pharmacist, Salesperson, Supplier, and Customer. These external parties interact with the system through the input and output data. The input data includes authentication, inventory, sales, purchase, and management data. In turn, the system provides invoices, reports, inventory data, notifications, and AI-based forecasts as an output.
 
-In a thesis or project work like a Student Management System, the context diagram would show the system at the center, with external entities such as Student, Teacher, and Admin. Data flows may include login requests, student information, marks entry, and result reports. The accompanying description should briefly explain how each entity interacts with the system. Overall, this section helps readers quickly understand the system boundary, scope, and interactions, serving as a foundation for more detailed design diagrams.
+\subsection*{Context diagram of the proposed system.}
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[
+      scale=0.72,
+      transform shape,
+      node distance=3.0cm,
+      entity/.style={rectangle, draw, fill=blue!10, text width=3.2cm, align=center, rounded corners=4pt, minimum height=1.2cm, font=\sffamily\bfseries, drop shadow},
+      system/.style={rectangle, draw, fill=red!5, text width=5.0cm, align=center, rounded corners=15pt, minimum height=3.0cm, font=\sffamily\Large\bfseries, drop shadow, thick},
+      arrow/.style={thick, -{Stealth}},
+      labelstyle/.style={font=\small\sffamily, align=center}
+    ]
+    
+    \node[system] (system) {Pharmacy ERP \\ System};
+
+     \node[entity, above left=3.2cm and 1.2cm of system] (admin) {Super Admin};
+    \node[entity, above right=3.2cm and 1.2cm of system] (staff) {Pharmacy Staff};
+    \node[entity, left=4.5cm of system] (supplier) {Supplier};
+    \node[entity, right=4.5cm of system] (customer) {Customer};
+    \node[entity, below=3.5cm of system] (external) {External Services \\ (AI \& Notification)};
+    
+    
+    \draw[arrow] (admin.south) -- node[left, labelstyle, xshift=-0.2cm] {User / Org / Branch \\ Management \\ System Config} (system.north west);
+    \draw[arrow] (system.north west) -- node[right, labelstyle, xshift=0.2cm] {Reports \\ Analytics} (admin.south);
+    
+    \draw[arrow] (staff.south) -- node[right, labelstyle, xshift=0.2cm] {Medicine Management \\ Inventory Batch Management \\ (Batch No., Expiry)} (system.north east);
+    \draw[arrow] (system.north east) -- node[left, labelstyle, xshift=-0.2cm] {Stock Status \\ Notifications \\ Reports} (staff.south);
+    
+    \draw[arrow] (supplier.east) -- node[above, labelstyle] {Supplies \\ Payment Info} (system.west);
+    \draw[arrow] (system.west) -- node[below, labelstyle] {Purchase Orders \\ Invoices} (supplier.east);
+    
+    \draw[arrow] (customer.west) -- node[above, labelstyle] {Purchase Requests \\ Payment} (system.east);
+    \draw[arrow] (system.east) -- node[below, labelstyle] {Sales Receipts \\ Invoices} (customer.west);
+    
+    \draw[arrow] (system.south) -- node[left, labelstyle, xshift=-0.2cm] {Historical Data \\ Alert Triggers} (external.north);
+    \draw[arrow] (external.north) -- node[right, labelstyle, xshift=0.2cm] {Demand Forecast \\ Expiry Alerts \\ Reorder Rec.} (system.south);
+    
+  \end{tikzpicture}
+  \caption{Context Diagram}
+  \label{fig:context-diagram}
+\end{figure}
 
 \subsection{UI Design}
 if required (may be for project work)
 
 \section{Detailed Methodology and Design}
-The Detailed Methodology and Design section explains how the project is carried out and how the system is structured, translating objectives into a clear technical plan. It typically includes the overall approach (research method or development model), system architecture, algorithms or models used, data collection/preprocessing (if any), and design components such as modules, database schema, and flow diagrams (e.g., flowchart, DFD, UML). This section should describe the step-by-step process from input to output, along with tools, technologies, and design decisions.
+The proposed A Cross-Platform Multi-Vendor Pharmacy ERP System with AI-Based Stock Forecasting and Analytics will adopt the client-server architecture, which will ensure scalability, operability, and effective communication of the system’s components. The system will comprise three main parts: frontend, backend, and database. The frontend will include the website, which will be built on NextJS framework, and the mobile application, which will be developed in Flutter framework. The website and the mobile app will use REST API for effective communication with the backend.
 
-In a thesis (research) work, for example, an AI-based system may describe dataset collection, preprocessing, feature extraction, model architecture (e.g., CNN-BiLSTM), training process, and evaluation strategy, often supported by block diagrams. In a project (system/software) work, such as a web-based application, it may include system architecture (frontend–backend–database), module design (login, data management), database tables, API flow, and user interface design. Overall, this section demonstrates a well-structured, logical, and implementable plan, showing how the proposed solution is designed and executed.
+The application backend is built with Express.js., which handles the request and response logic in the system. It also manages such aspects as user authentication and authorization, request validation, business logic, and pharmacy operation. Additionally, the backend accommodates the forecasting system that uses AI to predict demand based on past sales and inventory data, while also presenting warnings on low stock, expiry dates, and recommended items for reorder.
+
+The MongoDB database is utilized to store all the information related to the app, such as users, medicines, inventory, purchases, sales, suppliers, customers, employees, and AI forecasts. Additionally, the Redis database is applied as an in-memory cache to enhance the performance of the application by decreasing the number of requests to the MongoDB database.
+
+The general process starts when a request from the user comes to the web or the mobile application. The application then relays the request to the backend, where it is authenticated and processed. The backend accesses the database to retrieve or update the required information according to the request type and returns the result to the application. In case of forecasts, the backend will relay the sales and inventory data to the AI, process the results, store them in the database, and display the forecast results in the dashboard.
+
+\subsection*{Overall System Architecture}
+Illustrates the overall architecture of the proposed system. Web and mobile applications are connected to the backend with RESTful APIs. The backend is built using Express.js framework. It is responsible for processing incoming requests, working with the database (MongoDB), caching (Redis), and the AI module that is used to calculate demand forecasts and recommendations.
+
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[
+      scale=0.82,
+      transform shape,
+      node distance=1.2cm,
+      client/.style={rectangle, draw, fill=blue!10, text width=3.2cm, align=center, rounded corners=4pt, minimum height=1.2cm, font=\sffamily\bfseries, drop shadow},
+      gateway/.style={rectangle, draw, fill=purple!10, text width=4.2cm, align=center, rounded corners=4pt, minimum height=1cm, font=\sffamily\bfseries, drop shadow},
+      backend/.style={rectangle, draw, fill=red!8, text width=7.0cm, align=center, rounded corners=4pt, minimum height=3.2cm, font=\sffamily\bfseries, drop shadow},
+      db/.style={cylinder, shape border rotate=90, draw, fill=orange!10, text width=2.8cm, align=center, minimum height=1.3cm, font=\sffamily, drop shadow},
+      external/.style={rectangle, draw, fill=green!10, text width=3.2cm, align=center, rounded corners=4pt, minimum height=1.3cm, font=\sffamily, drop shadow},
+      arrow/.style={thick, -{Stealth}}
+    ]
+    
+    \node[client] (web) {Web App \\ (Next.js)};
+    \node[client, right=4.0cm of web] (mobile) {Mobile App \\ (Flutter)};
+    
+    \node[gateway, below=1.2cm of $(web.south)!0.5!(mobile.south)$] (api) {RESTful APIs (HTTPS)};
+    
+    \node[backend, below=1.8cm of api] (backend) {Express.js Backend \\
+      \small
+      \begin{tabular}{c}
+        Authentication \& Authorization (JWT) \\
+        Business Logic \\
+        Inventory Management \\
+        Sales \& Purchase Management \\
+        AI Forecast Processing
+      \end{tabular}
+    };
+    
+    \node[db, below left=2.5cm and 0.8cm of backend] (mongo) {MongoDB \\ Database};
+    \node[db, below right=2.5cm and 0.8cm of backend] (redis) {Redis Cache \\ Performance};
+    
+    \node[external, right=1.8cm of backend] (gemini) {Gemini AI API \\
+      \small Demand Forecasting \\
+      \small Reorder Recommendation};
+    
+    \draw[arrow] (web) -- (api);
+    \draw[arrow] (mobile) -- (api);
+    \draw[arrow] (api) -- (backend);
+    
+    \draw[arrow] (backend.south) -- ++(0, -1.5) -| (mongo.north);
+    \draw[arrow] (backend.south) -- ++(0, -1.5) -| (redis.north);
+    
+    \draw[arrow] (backend.east) -- (gemini.west);
+    
+  \end{tikzpicture}
+  \caption{Overall System Architecture}
+  \label{fig:sys-arch}
+\end{figure}
+
+
+\subsection*{System Data Flow}
+The diagram below represents the internal structure of the proposed system. In general, the system receives the user requests via the client applications, processes them in the backend, validates and stores/retrieves the data in/from the database, and returns the results to the users.
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[
+      scale=0.75, 
+      transform shape,
+      node distance=0.9cm, 
+      userstyle/.style={rectangle, draw, fill=cyan!15, text width=4.5cm, align=center, rounded corners=4pt, minimum height=0.9cm, font=\sffamily\bfseries},
+      appstyle/.style={rectangle, draw, fill=blue!10, text width=4.5cm, align=center, rounded corners=4pt, minimum height=0.9cm, font=\sffamily\bfseries},
+      apistyle/.style={rectangle, draw, fill=purple!10, text width=4.5cm, align=center, rounded corners=4pt, minimum height=0.9cm, font=\sffamily\bfseries},
+      logicstyle/.style={rectangle, draw, fill=red!8, text width=4.5cm, align=center, rounded corners=4pt, minimum height=0.9cm, font=\sffamily\bfseries},
+      dbstyle/.style={cylinder, shape border rotate=90, draw, fill=orange!10, text width=4.0cm, align=center, minimum height=0.9cm, font=\sffamily},
+      resstyle/.style={rectangle, draw, fill=teal!10, text width=4.5cm, align=center, rounded corners=4pt, minimum height=0.9cm, font=\sffamily\bfseries},
+      arrow/.style={thick, -{Stealth}}
+    ]
+    
+    \node[userstyle] (user1) {User};
+    
+    \node[appstyle, below=0.8cm of user1] (app1) {Web / Mobile Application};
+    
+    \node[apistyle, below=0.8cm of app1] (req) {REST API Request};
+    
+    \node[logicstyle, below=0.8cm of req] (auth) {Authentication (JWT)};
+    
+    \node[logicstyle, below=0.8cm of auth] (business) {Business Logic};
+    
+    \node[dbstyle, below=0.8cm of business] (db) {MongoDB Database};
+    
+    \node[resstyle, below=0.8cm of db] (res) {Response};
+    
+    \node[appstyle, below=0.8cm of res] (app2) {Web / Mobile Application};
+    
+    \node[userstyle, below=0.8cm of app2] (user2) {User};
+    
+    \draw[arrow] (user1) -- (app1);
+    \draw[arrow] (app1) -- (req);
+    \draw[arrow] (req) -- (auth);
+    \draw[arrow] (auth) -- (business);
+    \draw[arrow] (business) -- (db);
+    \draw[arrow] (db) -- (res);
+    \draw[arrow] (res) -- (app2);
+    \draw[arrow] (app2) -- (user2);
+    
+  \end{tikzpicture}
+  \caption{System Data Flow}
+  \label{fig:req-res-flow}
+\end{figure}
+
 
 \section{Tools and Technologies Used}
-The Tools and Technologies Used section lists and briefly explains the software, hardware, programming languages, frameworks, and platforms utilized to develop the thesis or project. Its purpose is to show how the system was implemented and why specific tools were chosen, often mentioning their role in development, testing, or deployment. This section may be presented in a table or categorized list (e.g., Programming Language, Framework, Database, Hardware, Development Tools).
+The proposed system was designed using the latest programming languages, frameworks, libraries, databases, and development tools. The choice of these technologies was determined by their ability to meet all requirements: high performance, scalability, security, maintainability, and the ability to implement cross-platform, multi-vendor ERP software with AI analytics.
 
-In a thesis (research) work, for example, an AI-based project may use Python, TensorFlow/PyTorch, NumPy, and Jupyter Notebook, along with tools for data preprocessing and visualization. In a project (system/software) work, such as a web-based application, the technologies may include HTML, CSS, JavaScript, a backend framework (e.g., Django or Node.js), and a database like MySQL, along with version control tools like Git. The section should also briefly justify choices—for instance, selecting Python for its rich AI libraries or a specific framework for scalability. Overall, this section demonstrates the technical foundation and implementation environment of the work.
+The general flow of operations and the underlying architecture of the described system are diagrammed below.
+
+
+\begin{longtblr}[
+  caption = {Tools and Technologies},
+  label = {toolsTechnologies},
+]{
+  width = \linewidth,
+  colspec = {Q[150]Q[140]Q[673]},
+  cells = {c},
+  row{1} = {font=\bfseries},
+  cell{2}{1} = {r=2}{},
+  cell{4}{1} = {r=3}{},
+  cell{7}{1} = {r=5}{},
+  cell{12}{1} = {r=3}{},
+  cell{15}{1} = {r=2}{},
+  hlines,
+  vlines,
+}
+Category             & Technology         & Purpose                                                                                                                            \\
+Programming Language & TypeScript         & Used for developing the web application and backend. It provides static typing, improves code quality, and reduces runtime errors. \\
+                     & Dart               & Used for developing the Flutter mobile application using a single codebase for multiple platforms.                                 \\
+Framework            & Next.js            & Used to build the web application with server-side rendering, optimized performance, and improved user experience.                 \\
+                     & Express.js         & Used to develop RESTful APIs, implement business logic, and handle communication between the client and database.                  \\
+                     & Flutter            & Used to develop cross-platform mobile applications for Android and iOS from a single codebase.                                     \\
+Library              & Shadcn/UI          & Used to build a modern, responsive, and reusable user interface.                                                                   \\
+                     & Zustand            & Used for lightweight global state management in the web application.                                                               \\
+                     & Riverpod           & Used for scalable and efficient state management in the Flutter application.                                                       \\
+                     & JWT                & Used for secure user authentication and authorization using access tokens.                                                         \\
+                     & Bcrypt             & Used to hash user passwords securely before storing them in the database.                                                          \\
+Development Tool     & Visual Studio Code & Used as the primary code editor for writing, debugging, and maintaining the application.                                           \\
+                     & Git  GitHub        & Used for version control, source code management, and team collaboration.                                                          \\
+                     & Postman            & Used to test, validate, and debug RESTful API endpoints during development.                                                        \\
+Database             & MongoDB            & Used as the primary NoSQL database for storing application data efficiently.
+
+\\
+                     & Mongoose           & Used as an Object Data Modeling (ODM) library for MongoDB to simplify data modeling and validation.                                \\
+Deployment Tool      & Vercel             & Used to deploy and host the web application with automatic deployment support.                                                     \\
+In-Memory Data Store & Redis              & Used for caching frequently accessed data, improving application performance and reducing database load.                           
+\end{longtblr}
 
 \section{Work Division and Team Management}
-he Work Division and Team Management section explains how responsibilities were distributed among team members and how the project was coordinated and managed. It typically describes each member’s role (e.g., development, design, testing, documentation), the task allocation strategy, and how collaboration was maintained using meetings, version control, or project management tools. This section may include a table showing team members and their assigned tasks, along with a brief explanation of workflow, communication, and timeline management (e.g., milestones or Gantt chart).
+The implementation of the proposed system was performed collectively by three team members. The project was divided according to each member’s specialization to ensure effective development and timely launch of the project. In addition, regular meetings and weekly conferences were organized to evaluate the progress and address specific technical challenges. Furthermore, Git and GitHub were utilized for repository hosting and development purposes, while Postman was used for testing the application programming interface (API). Finally, the cooperation and communication among group members enabled effective control and management of the project implementation process.
 
-For example, in a thesis/project team of three students developing a web-based system, one member may handle frontend design (UI/UX), another may work on backend development and database, and the third may focus on testing, integration, and documentation. Team management may involve weekly meetings, task tracking using tools like Git or Trello, and collaborative coding via version control. Overall, this section demonstrates organized teamwork, clear responsibility distribution, and effective coordination, ensuring the successful completion of the project.
+\begin{longtblr}[
+  caption = {Work Division and Team Management},
+  label = {workDivision},
+]{
+  width = \linewidth,
+  colspec = {Q[27]Q[150]Q[827]},
+  row{1} = {font=\bfseries},
+  hlines,
+  vlines,
+}
+\# & Team Member      & Responsibilities                                                                                                                                                                                                                                                           \\
+1  & Showrav\par{} Kormokar & Frontend web development using Next.js, UI development with shadcn/ui, state management using Zustand, dashboard implementation, report generation, testing, and bug fixing.                                                                                               \\
+2  & Md. Rafiz Uddin  & Mobile application development using Flutter, state management with Riverpod, UI implementation, API integration, testing, and bug fixing.                                                                                                                                 \\
+3  & Md. Sohel Rana   & Backend development using Express.js, database design using MongoDB and Mongoose, RESTful API development, authentication and authorization using JWT, Redis caching, AI-based stock forecasting integration, deployment, and system integration, testing, and bug fixing. 
+\end{longtblr}
 
-In a two-column table, the left column will contain the names of the team members, and the right column will list the tasks of the project/thesis completed by the respective team members.
 \section{Time Frame}
-There will be a Gantt chart that illustrates the different phases of the project work on the total timeline, along with the specific roles of each team member in those phases.
+The project was developed according to the prepared schedule to ensure that all aspects of the work would be completed on time. The work was broken down into stages. The Gantt chart below demonstrates the project schedule, task durations, and responsibilities of each team member during the development of the project.
+
+\pagestyle{empty}
+\newpage
+
+\begin{figure}[htbp]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{ganttchart}[
+        hgrid,
+        vgrid,
+        x unit=1.70cm,
+        y unit chart=1.55cm,
+        title height=1,
+        title label font=\bfseries\scriptsize,
+        bar height=0.45,
+        bar label font=\LARGE,
+        bar/.append style={fill=gray!35, draw=gray!45!black},
+        milestone/.append style={fill=gray!65!black, draw=gray!45!black},
+        milestone label font=\scriptsize,
+        group/.append style={fill=gray!65!black, draw=gray!45!black},
+        group label font=\bfseries\scriptsize,
+        progress label text={}
+    ]{1}{10}
+        \gantttitle{Time Frame (Gantt Chart)}{10} \\
+        \gantttitle{M1}{1}
+        \gantttitle{M2}{1}
+        \gantttitle{M3}{1}
+        \gantttitle{M4}{1}
+        \gantttitle{M5}{1}
+        \gantttitle{M6}{1}
+        \gantttitle{M7}{1}
+        \gantttitle{M8}{1}
+        \gantttitle{M9}{1}
+        \gantttitle{M10}{1} \\
+        \gantttitle{25/10}{1}
+        \gantttitle{25/11}{1}
+        \gantttitle{25/12}{1}
+        \gantttitle{26/1}{1}
+        \gantttitle{26/2}{1}
+        \gantttitle{26/3}{1}
+        \gantttitle{26/4}{1}
+        \gantttitle{26/5}{1}
+        \gantttitle{26/6}{1}
+        \gantttitle{26/7}{1} \\
+        \ganttbar{1. Project Planning --- All members}{1}{1} \\
+        \ganttbar{2. Literature Review --- All members}{2}{2} \\
+        \ganttbar{3. System Design --- Member 1, 2}{2}{2} \\
+        \ganttbar{4. Database Design --- Member 3}{2}{3} \\
+        \ganttbar{5. Frontend Dev. --- Member 1, 2}{3}{8} \\
+        \ganttbar{6. Backend Dev. --- Member 3}{3}{8} \\
+        \ganttbar{7. Testing \& Debugging --- All members}{6}{8} \\
+        \ganttbar{8. Documentation --- Member 3}{8}{8} \\
+        \ganttbar{9. Presentation Prep --- All members}{9}{9} \\
+        \ganttbar{10. Final Submission --- All members}{9}{10}
+    \end{ganttchart}%
+    }
+    \caption{Time Frame (Gantt Chart)}
+    \label{fig:gantt}
+\end{figure}
 
 \section{Summary}
+This chapter provided an overview of the main components of the proposed pharmacy ERP system.It discussed the functional and non-functional requirements, context diagram, user interface design, detailed methodology, tools and technologies used, work division among team members, and the project timeline. All these components provided insight into the system’s architecture and the development process.
