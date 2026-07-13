@@ -132,6 +132,8 @@ Here are some of our UI screens for mobile app:
 
 
 \begin{figure}[H]
+  \caption{Mobile App UI}
+  \label{fig:mobile-screens}
     \centering
     \begin{subfigure}[b]{0.3\textwidth}
         \centering
@@ -150,8 +152,6 @@ Here are some of our UI screens for mobile app:
       \includegraphics[width=\textwidth]{./images/flutter3.png}
       \caption{POS Complete}
     \end{subfigure}
-    \caption{Mobile App UI}
-    \label{fig:mobile-screens}
 \end{figure}
     
 
@@ -168,6 +168,8 @@ Illustrates the overall architecture of the proposed system. Web and mobile appl
 
 
 \begin{figure}[H]
+  \caption{Overall System Architecture}
+  \label{fig:sys-arch}
   \centering
 \begin{tikzpicture}
   \node[draw, align=center, inner sep=3.53pt] (node3) at (1.4,4.1) {Mobile App\\Flutter};
@@ -207,8 +209,6 @@ Illustrates the overall architecture of the proposed system. Web and mobile appl
   \node[draw=none, fill=white] at (6,-5.37) {CRUD Operation};
   \node[draw=none, fill=white] at (6.95,-2.55) {Cache Read/Write};
 \end{tikzpicture}
-  \caption{Overall System Architecture}
-  \label{fig:sys-arch}
 \end{figure}
 
 
@@ -216,6 +216,8 @@ Illustrates the overall architecture of the proposed system. Web and mobile appl
 The diagram below represents the internal structure of the proposed system. In general, the system receives the user requests via the client applications, processes them in the backend, validates and stores/retrieves the data in/from the database, and returns the results to the users.
 
 \begin{figure}[H]
+  \caption{System Data Flow}
+  \label{fig:req-res-flow}
   \centering
 \begin{tikzpicture}
   \node[draw, align=center, minimum height=42pt, minimum width=137pt] (node1) at (0,0) {User};
@@ -239,8 +241,6 @@ The diagram below represents the internal structure of the proposed system. In g
   \draw[->] (node6.south) -- (node7.north);
   \draw[->] (node7.south) -- (node8.north);
 \end{tikzpicture} 
-  \caption{System Data Flow}
-  \label{fig:req-res-flow}
 \end{figure}
 
 
@@ -310,6 +310,8 @@ The project was developed according to the prepared schedule to ensure that all 
 \newpage
 
 \begin{figure}[htbp]
+  \caption{Time Frame (Gantt Chart)}
+  \label{fig:gantt}
     \centering
     \resizebox{\textwidth}{!}{%
     \begin{ganttchart}[
@@ -361,8 +363,6 @@ The project was developed according to the prepared schedule to ensure that all 
         \ganttbar{10. Final Submission --- All members}{9}{10}
     \end{ganttchart}%
     }
-    \caption{Time Frame (Gantt Chart)}
-    \label{fig:gantt}
 \end{figure}
 
 \section{Summary}
