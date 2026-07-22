@@ -12,7 +12,7 @@ The Pharmaciano system follows common software engineering standards to ensure t
 \textbf{Coding Standards}\\
 The following coding practices were maintained during development:
 \begin{itemize}
-\item Meaningful variable and function names.
+\item Meaningful variable and function names \cite{martin2008clean}.
 \item Proper folder and project structure.
 \item Consistent indentation and formatting.
 \item Reusable components and functions.
@@ -347,7 +347,7 @@ This project helped us understand how real business software is design, develope
 
 \section{Cost Analysis}
 The budget needed to build Pharmaciano and the alternate budget if it is done in commercial way, and possible revenue model. We also connect our gap analysis (Chapter 2) to show why Pharmaciano is cost-effective compare to existing solution.\\
-\textbf{Development Budget (Our Actual Cost — FYDP)}\\
+\textbf{Development Budget (Our Actual Cost)}\\
 We build Pharmaciano ourselves as student, using free and open-source tool, our real cost is mainly time and effort, not money.
 
 \begin{longtblr}[
@@ -385,13 +385,13 @@ If Pharmaciano is build by hiring professional developer like industry, or scale
   hlines,
   vlines,
 }
-Component                            & Alternate Option                & Estimated Cost                                              \\
+Component                            & Tools                & Estimated Cost                                              \\
 Developer team (3 people, few month) & Hire junior/freelance developer & BDT 150,000–250,000 (one time)                              \\
-Hosting                              & Vercel Pro                      & \textasciitilde{}\$20/month (\textasciitilde{} BDT 2,300)   \\
-Database                             & MongoDB Atlas M10+              & \textasciitilde{}\$57+/month (\textasciitilde{} BDT 6,500+) \\
-Caching                              & Redis paid tier                 & \textasciitilde{}\$10+/month (\textasciitilde{} BDT 1,150+) \\
-AI Service                           & Gemini paid tier                & Variable, pay per usage                                     \\
-Domain                               & Custom .com domain              & \textasciitilde{} BDT 1,200/year                            \\
+Hosting                              & Vercel Pro                      & \textasciitilde{}\$20/month (\textasciitilde{} BDT 2,300) \cite{vercelPricing}   \\
+Database                             & MongoDB Atlas Dedicated         & \textasciitilde{}\$57+/month (\textasciitilde{} BDT 6,500+) \cite{atlasPricing}\\
+Caching                              & Redis paid tier                 & \textasciitilde{}\$20+/month (\textasciitilde{} BDT 2,300+) \cite{redisPricing}\\
+AI Service                           & Gemini paid tier                & Variable, pay per usage   \cite{GeminiPricing}                                  \\
+Domain                               & Custom .com domain              & \textasciitilde{} BDT 1,200/year  \cite{NameCheapPricing}                          \\
 Total (approx, first year)           &                                 & \textasciitilde{} BDT 200,000–300,000                       
 \end{longtblr}
 

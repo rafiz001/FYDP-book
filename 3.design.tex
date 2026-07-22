@@ -156,7 +156,7 @@ Here are some of our UI screens for mobile app:
     
 
 \section{Detailed Methodology and Design}
-The proposed A Cross-Platform Multi-Vendor Pharmacy ERP System with AI-Based Stock Forecasting and Analytics adopted the client-server architecture, which ensured scalability, operability, and effective communication of the system’s components. The system comprised three main parts: frontend, backend, and database. The frontend included the website, which was built on NextJS framework, and the mobile application, which was developed in Flutter framework. The website and the mobile app used REST API for effective communication with the backend.
+The proposed A Cross-Platform Multi-Vendor Pharmacy ERP System with AI-Based Stock Forecasting and Analytics adopted the client-server architecture \cite{xu2020system}, which ensured scalability, operability, and effective communication of the system’s components. The system comprised three main parts: frontend, backend, and database. The frontend included the website, which was built on NextJS framework, and the mobile application, which was developed in Flutter framework. The website and the mobile app used REST API for effective communication with the backend.
 
 The application backend was built with Express.js, which handled the request and response logic in the system. It also managed such aspects as user authentication and authorization, request validation, business logic, and pharmacy operation. Additionally, the backend accommodated the forecasting system that used AI to predict demand based on past sales and inventory data, while also presenting warnings on low stock, expiry dates, and recommended items for reorder.
 
@@ -266,13 +266,13 @@ The proposed system was designed using the latest programming languages, framewo
   vlines,
 }
 Category             & Technology         & Purpose                                                                                                                            \\
-Programming Language & TypeScript         & Used for developing the web application and backend. It provides static typing, improves code quality, and reduces runtime errors. \\
-                     & Dart               & Used for developing the Flutter mobile application using a single codebase for multiple platforms.                                 \\
+Programming Language & TypeScript         & Used for developing the web application and backend. It provides static typing, improves code quality, and reduces runtime errors \cite{typeScript}. \\
+                     & Dart               & Used for developing the Flutter mobile application using a single codebase for multiple platforms \cite{dartLang}.                                 \\
 \pagebreak
-Framework            & Next.js            & Used to build the web application with server-side rendering, optimized performance, and improved user experience.                 \\
-                     & Express.js         & Used to develop RESTful APIs, implement business logic, and handle communication between the client and database.                  \\
-                     & Flutter            & Used to develop cross-platform mobile applications for Android and iOS from a single codebase.                                     \\
-Library              & Shadcn/UI          & Used to build a modern, responsive, and reusable user interface.                                                                   \\
+Framework            & Next.js            & Used to build the web application with server-side rendering, optimized performance, and improved user experience \cite{typeScript}.                 \\
+                     & Express.js         & Used to develop RESTful APIs, implement business logic, and handle communication between the client and database \cite{expressJs}.                  \\
+                     & Flutter            & Used to develop cross-platform mobile applications for Android and iOS from a single codebase \cite{flutter}.                                     \\
+Library              & Shadcn/UI          & Used to build a modern, responsive, and reusable user interface \cite{shadcn}.                                                                   \\
                      & Zustand            & Used for lightweight global state management in the web application.                                                               \\
                      & Riverpod           & Used for scalable and efficient state management in the Flutter application.                                                       \\
                      & JWT                & Used for secure user authentication and authorization using access tokens.                                                         \\
@@ -280,10 +280,10 @@ Library              & Shadcn/UI          & Used to build a modern, responsive, 
 Development Tool     & Visual Studio Code & Used as the primary code editor for writing, debugging, and maintaining the application.                                           \\
                      & Git  GitHub        & Used for version control, source code management, and team collaboration.                                                          \\
                      & Postman            & Used to test, validate, and debug RESTful API endpoints during development.                                                        \\
-Database             & MongoDB            & Used as the primary NoSQL database for storing application data efficiently.                                                       \\
+Database             & MongoDB            & Used as the primary NoSQL database for storing application data efficiently \cite{mongodb}.                                                       \\
                      & Mongoose           & Used as an Object Data Modeling (ODM) library for MongoDB to simplify data modeling and validation.                                \\
 Deployment Tool      & Vercel             & Used to deploy and host the web application with automatic deployment support.                                                     \\
-In-Memory Data Store & Redis              & Used for caching frequently accessed data, improving application performance and reducing database load.                           
+In-Memory Data Store & Redis              & Used for caching frequently accessed data, improving application performance and reducing database load \cite{redis}.                           
 \end{longtblr}
 
 \section{Work Division and Team Management}
